@@ -1,0 +1,76 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+a:hover {
+  background-color: #ddd; 
+  text-decoration: none;
+  color: inherit;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* Navigation Bar */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #eeff00;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 1rem;
+}
+
+/* Main Content */
+main {
+  padding: 2rem;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+article,
+aside {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color:#c1c1c1;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #eeff00;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+
+#lineChart {
+  margin-bottom:20px;
+}
+
+#barchart {
+  margin-bottom: 20px;
+}

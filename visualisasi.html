@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Dashboard Website</h1>
+    <nav>
+      <ul>
+        <li><a class="home" href="index.html">Home</a></li>
+        <li><a class="settings" href="#">Settings</a></li>
+        <li><a class="visualisasi" href="visualisasi.html">visualisasi</a></li>
+        <li><a class="Contact" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <br>
+    <div style="width: 50%; margin: auto;">
+        <canvas id="lineChart"></canvas>
+    </div>
+    <div style="width: 50%; margin: auto; display: flex;">
+    <div style="width: 70%;">
+        <canvas id="barChart"></canvas>
+    </div>
+    <br>
+    <div style="width: 30%;">
+    </div>
+    </div>
+    <br>
+    <footer>
+        <p>&copy; 2024 Team 2 Balikpapan - RevoU</p>
+    </footer>
+
+    <script>
+        // Mengambil data JSON
+        $.getJSON('vending_machine_sales.json', function(data) {
+            const value = data;
+
+            // Menghitung total revenue per bulan
+            const monthlyRevenue = new Array(12).fill(0); // Inisialisasi array dengan 12 bulan, setiap bulan dimulai dari nol
+
+            value.Revenue.forEach(revenue => {
+                // Mengambil indeks bulan (dikurangi 1 karena bulan dimulai dari 1 sedangkan indeks dimulai dari 0)
+                const monthIndex = parseInt(revenue.month) - 1;
+                // Menambahkan nilai pendapatan ke total revenue bulan yang sesuai
+                monthlyRevenue[monthIndex] += revenue.value;
+            });
+
+            // Data untuk line chart
+            const lineData = {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                datasets: [{
+                    label: 'Sales',
+                    data: monthlyRevenue,
+                    borderColor: 'rgb(75, 192, 192)',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            };
+
+            // Konfigurasi untuk line chart
+            const lineConfig = {
+                type: 'line',
+                data: lineData,
+                options: {}
+            };
+
+            // Inisialisasi line chart
+            var lineChart = new Chart(document.getElementById('lineChart'), lineConfig);
+
+        });
+    </script>
+</body>
+</html>

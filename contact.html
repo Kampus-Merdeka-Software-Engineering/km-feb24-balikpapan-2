@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Team 2</title>
+</head>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #d1d1d1;
+        }
+        .wrapper{
+            width: 800px;
+            margin: 60px auto;
+            padding:20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow:2px 1px 1px #aaa;
+        }
+        h1{
+            text-align:center;
+        }
+        h1:hover{
+            opacity: .5;
+            transition: 1s;
+        }
+        .input-wrapper{
+            width:calc(100% - 20px);
+            margin-top: 4px;
+            margin-bottom: 8px;
+            padding:10px;
+        }
+        .submit{
+            width:100%;
+            margin-top:19px;
+            cursor:pointer;
+            background-color:#4072b8;
+            padding:10px 0;
+            border:none
+        }
+        .submit:hover{
+            opacity: 0.8;
+            transition: 1s;
+        }
+        .student-table{
+            width:100%;
+        }
+        /* .student-table th{
+            a
+        }
+        .student-table tr{
+            #
+        }
+        .student-table td{
+            #
+        } */
+        @media screen and (max-width: 800px){
+            .wrapper{
+                width:100%;
+            }
+        }
+    </style>
+<body>
+    <div class="wrapper">
+        <h1>Contact Form</h1>
+        <p>Please fill out your information below</p>
+        <form>
+            <label for="name">Name:</label>
+            <input placeholder="Enter your name" class="input-wrapper" type="text" required>
+            <br>
+            <label for="age">Age:</label>
+            <input class="input-wrapper" type="number" min="12">
+            <br>
+            <label for="email">Email:</label>
+            <input class="input-wrapper" type="email" required>
+            <br>
+            <label for="dob">DoB</label>
+            <input class="input-wrapper" type="date">
+            <br>
+            <button class="submit" type="submit">Submit</button>
+        </form>
+    </div>
+<!--     
+        <img src="https://source.unsplash.com/200x200" alt="Random Image">
+        <video src="https://www.youtube.com/watch?v=TdOg-TNt3Q4" controls></video>
+        <audio src="#" controls></audio> -->
+    </body>
+</html>
