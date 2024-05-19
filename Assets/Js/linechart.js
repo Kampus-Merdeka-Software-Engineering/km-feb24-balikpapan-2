@@ -1,4 +1,4 @@
-fetch('vending_machine_sales.json')
+fetch('/Assets/Data/vending_machine_sales.json')
   .then(response => response.json())
   .then(data => {
     const monthlyRevenue = {

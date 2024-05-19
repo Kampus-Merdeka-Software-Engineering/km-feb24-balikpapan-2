@@ -1,0 +1,48 @@
+/* Global Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  background: rgb(0, 0, 0); 
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #ffffff; 
+}
+
+/* Main Content */
+main {
+  padding: 2rem;
+  margin-top: 3.5rem;
+  background: #000000;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
+
+article,
+aside {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color:#000000;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}
