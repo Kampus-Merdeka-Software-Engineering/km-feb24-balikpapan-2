@@ -1,0 +1,47 @@
+
+.wrapper{
+    width: 800px;
+    margin: 60px auto;
+    padding:20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow:2px 1px 1px #aaa;
+    color:black;
+}
+h1{
+    text-align:center;
+}
+h1:hover{
+    opacity: .5;
+    transition: 1s;
+}
+.input-wrapper{
+    width:calc(100% - 20px);
+    margin-top: 4px;
+    margin-bottom: 8px;
+    padding:10px;
+}
+.submit{
+    width:100%;
+    margin-top:19px;
+    cursor:pointer;
+    background-color:#FFEF00;
+    padding:10px 0;
+    border:none
+}
+.submit:hover{
+    opacity: 0.8;
+    transition: 1s;
+}
+.student-table{
+    width:100%;
+}
+/* .student-table th{
+    a
+}
+.student-table tr{
+    #
+}
+.student-table td{
+    #
+} */

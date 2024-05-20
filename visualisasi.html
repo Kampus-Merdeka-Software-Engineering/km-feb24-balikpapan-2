@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Visualization</title>
     <link rel="stylesheet" href="/Assets/Css/header.css">
     <link rel="stylesheet" href="/Assets/Css/style.css">
     <link rel="stylesheet" href="/Assets/Css/visualisasi.css">
@@ -13,17 +13,19 @@
 </head>
 <body>
   <header>
-    <h1>Dashboard Website</h1>
+    <h1>Data Visualisasi</h1>
     <nav>
       <ul>
         <li><a class="home" href="index.html">Home</a></li>
-        <li><a class="settings" href="#">Settings</a></li>
-        <li><a class="visualisasi" href="visualisasi.html">visualisasi</a></li>
-        <li><a class="Contact" href="contact.html">Contact</a></li>
+        <li><a class="visualisasi" href="visualisasi.html">Visualisasi</a></li>
+        <li><a class="settings" href="ourteam.html">Our Team</a></li>
+        <li><a class="contact" href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
-  <br>
+
+  <main>
+    <br>
     <div style="width: 50%; margin: auto;">
         <canvas id="lineChart"></canvas>
     </div>
@@ -36,12 +38,15 @@
     </div>
     </div>
     <br>
+  </main>
+
     <footer>
         <p>&copy; 2024 Team 2 Balikpapan - RevoU</p>
     </footer>
 
     <script src="/Assets/Js/chart.js"></script>
     <script src="/Assets/Js/linechart.js"></script>
+    <script src="/Assets/Js/scroll.js"></script>
     
 </body>
 </html>
