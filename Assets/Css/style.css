@@ -25,14 +25,59 @@ main {
   background: #000000;
 }
 
+.vm-container {
+  margin-top: 5%;
+  background-image: url(/Assets/Images/vm.png);
+  background-size: cover;
+  padding: 300px;
+  font-family: Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.vm-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, rgb(0, 0, 0) 100%);
+  pointer-events: none;
+}
+
+.vm-title {
+  text-align: center;
+  color: #FFEF00;
+  font-size: 30px;
+  margin: 0%;
+  text-shadow: 2px 2px 4px rgba(70, 70, 70, 0.5);
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.vm-slogan {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  position: absolute;
+  bottom: 20%;
+  right: -10%;
+  transform: translateX(-50%);
+}
+
+
 .dashboard {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 1rem;
 }
 
-article,
-aside {
+.widget1 {
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -40,7 +85,68 @@ aside {
   color:#000000;
 }
 
+.widget2 {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255);
+  color:#000000;
+}
+
+
 /* Media Queries */
+
+@media (max-width: 1200px) {
+  .vm-container {
+    padding: 200px;
+  }
+
+  .vm-title {
+    font-size: 35px;
+    margin: 8%;
+    top: 8%;
+  }
+
+  .vm-slogan {
+    font-size: 20px;
+    bottom: 8%;
+  }
+}
+
+@media (max-width: 768px) {
+  .vm-container {
+    padding: 150px;
+  }
+
+  .vm-title {
+    font-size: 30px;
+    margin: 6%;
+    top: 6%;
+  }
+
+  .vm-slogan {
+    font-size: 18px;
+    bottom: 6%;
+  }
+}
+
+@media (max-width: 480px) {
+  .vm-container {
+    padding: 100px;
+  }
+
+  .vm-title {
+    font-size: 25px;
+    margin: 5%;
+    top: 5%;
+  }
+
+  .vm-slogan {
+    font-size: 16px;
+    bottom: 5%;
+  }
+}
+
 @media (max-width: 768px) {
   .dashboard {
     grid-template-columns: 1fr;
