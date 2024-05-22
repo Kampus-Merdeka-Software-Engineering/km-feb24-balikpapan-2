@@ -53,7 +53,7 @@ main {
   margin: 0%;
   text-shadow: 2px 2px 4px rgba(70, 70, 70, 0.5);
   position: absolute;
-  top: 5%;
+  top: -2%;
   left: 50%;
   transform: translateX(-50%);
 }

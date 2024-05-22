@@ -23,22 +23,23 @@
       </header>
 
     <main>
-        <div class="wrapper">
-            <p>Please fill out your information below</p>
-            <form>
-                <label for="name">Name:</label>
-                <input placeholder="Enter your name" class="input-wrapper" type="text" required>
-                <br>
-                <label for="age">Age:</label>
-                <input class="input-wrapper" type="number" min="12">
-                <br>
-                <label for="email">Email:</label>
-                <input class="input-wrapper" type="email" required>
-                <br>
-                <label for="dob">DoB</label>
-                <input class="input-wrapper" type="date">
-                <br>
-                <button class="submit" type="submit">Submit</button>
+        <div class="container">
+            <form id="contactForm" onsubmit="return validateForm()">
+                <h2>Formulir Kontak</h2>
+                <div class="form-group">
+                    <label for="name">Nama:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Pesan:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Kirim</button>
+                <div id="successMessage" style="display:none;">Terkirim</div>
             </form>
         </div>
     </main>
@@ -48,6 +49,7 @@
     </footer>
     
     <script src="/Assets/Js/scroll.js"></script>
+    <script src="/Assets/Js/contact.js"></script>
 <!--     
         <img src="https://source.unsplash.com/200x200" alt="Random Image">
         <video src="https://www.youtube.com/watch?v=TdOg-TNt3Q4" controls></video>
