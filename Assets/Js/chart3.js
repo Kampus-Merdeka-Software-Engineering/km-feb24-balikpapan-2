@@ -1,7 +1,6 @@
-// Import data from JSON file
+
 import data from '/Assets/Data/category.json' assert { type: 'json' };
 
-// Function to calculate total sales and revenue
 function calculateTotals(data) {
     let totals = {};
     data.forEach(item => {
@@ -18,17 +17,14 @@ function calculateTotals(data) {
     return totals;
 }
 
-// Calculate total sales and revenue
+
 const categoryTotals = calculateTotals(data);
 
-// Format data for barchart
+
 const categories = Object.keys(categoryTotals);
 const totalSales = categories.map(category => categoryTotals[category].Total_Sales);
 const revenue = categories.map(category => categoryTotals[category].Revenue);
 
-// Draw barchart
-// You can use a library like Chart.js to draw the barchart
-// Here is a simple usage example with Chart.js
 const ctx = document.getElementById('chart2').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'bar',

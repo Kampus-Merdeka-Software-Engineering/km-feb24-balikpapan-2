@@ -1,39 +1,45 @@
-import data from '/Assets/Data/vending_machine_sales.json' assert { type: 'json' };
+import data from '/Assets/Data/location.json' assert { type: 'json' };
 
-const aggregatedData = data.reduce((acc, item) => {
-    if (!acc[item.Location]) {
-        acc[item.Location] = { "Total Sales": 0, "Revenue": 0 };
-    }
-    acc[item.Location]["Total Sales"] += item["Total Sales"];
-    acc[item.Location]["Revenue"] += item.Revenue;
-    return acc;
-}, {});
+function calculateTotals(data) {
+    let totals = {};
+    data.forEach(item => {
+        if (totals[item.Location]) {
+            totals[item.Location].Total_Sales += parseFloat(item.Total_Sales);
+            totals[item.Location].Revenue += parseFloat(item.Revenue);
+        } else {
+            totals[item.Location] = {
+                Total_Sales: parseFloat(item.Total_Sales),
+                Revenue: parseFloat(item.Revenue)
+            };
+        }
+    });
+    return totals;
+}
 
-const categories = Object.keys(aggregatedData);
-const totalSales = categories.map(Location => aggregatedData[Location]["Total Sales"]);
-const revenues = categories.map(Location => aggregatedData[Location]["Revenue"]);
 
-console.log('Aggregated Data:', aggregatedData); // Debugging line
+const LocationTotals = calculateTotals(data);
+
+
+const Location = Object.keys(LocationTotals);
+const total_Sales = Location.map(Location => LocationTotals[Location].Total_Sales);
+const revenue = Location.map(Location => LocationTotals[Location].Revenue);
 
 const ctx = document.getElementById('barchart3').getContext('2d');
-if (window.barchart3 instanceof Chart) {
-    window.barchart3.destroy();
-}
-window.barchart3 = new Chart(ctx, {
+const barchart3 = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: categories,
+        labels: Location,
         datasets: [
             {
                 label: 'Total Sales',
-                data: totalSales,
+                data: total_Sales,
                 backgroundColor: 'rgba(75, 192, 192, 1)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1
             },
             {
                 label: 'Revenue',
-                data: revenues,
+                data: revenue,
                 backgroundColor: 'rgba(153, 102, 255, 1)',
                 borderColor: 'rgba(153, 102, 255, 1)',
                 borderWidth: 1
