@@ -16,11 +16,11 @@ header {
 header h1 {
   font-size: 36px;
   margin: 0;
-  color: #FFEF00;
+  color: #219EBC;
 }
 
 nav a:hover {
-  color: #FFEF00;
+  color: #219EBC;
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -44,13 +44,13 @@ nav a {
 
 /* Styles on scroll */
 .navbar-scrolled {
-  background-color: #FFEF00;
+  background-color: #023047;
 }
 
 .navbar-scrolled h1 {
-  color: #000000;
+  color: #ffffff;
 }
 
 .navbar-scrolled a {
-  color: #000000;
+  color: #ffffff;
 }

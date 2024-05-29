@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-=======
 .container {
-    background-color: #FFEF00;
+    background-color: #023047;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
@@ -42,4 +40,3 @@ button:hover {
     margin-top: 20px;
     color: #FFEF00;
 }
->>>>>>> 35287e1b94aeb0cc77c56c956bce5d8f7e44054a

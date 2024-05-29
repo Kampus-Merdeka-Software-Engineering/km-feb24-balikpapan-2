@@ -1,5 +1,6 @@
 import data from '/Assets/Data/machine.json' assert { type: 'json' };
 
+        // Fungsi untuk menjumlahkan total sales dari semua mesin
         function calculateTotalSales(data) {
             let totalSales = {};
             data.forEach(machine => {

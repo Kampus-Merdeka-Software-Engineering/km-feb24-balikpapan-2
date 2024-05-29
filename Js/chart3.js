@@ -48,10 +48,16 @@ const myChart = new Chart(ctx, {
         ]
     },
     options: {
+        plugins: {
+            title: {
+              display: true,
+              text: 'Chart Title',
         scales: {
             y: {
                 beginAtZero: true
             }
         }
+    }
+}
     }
 });

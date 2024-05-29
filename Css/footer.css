@@ -1,11 +1,11 @@
 /* Footer */
 
 .container {
-  background-color: #FFEF00;
+  background-color: #023047;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  color: black;
+  color: rgb(255, 255, 255);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -19,6 +19,13 @@
 
 .row-contact {
   flex: 1;
+}
+
+.row-contact h2 {
+    color: #ffffff;
+    padding: 20px;
+    margin-inline: -7px;
+    margin-top: -10px;
 }
 
 .form-group {
@@ -55,14 +62,6 @@ button:hover {
   color: #FFEF00;
 }
 
-h2 {
-  color: #000;
-  padding: 20px;
-  margin-inline: -7px;
-  margin-top: -10px;
-
-}
-
 .login {
   padding: 75px;
   margin: 100px auto;
@@ -73,7 +72,7 @@ h2 {
 
 label {
   font-size: 12pt;
-  color: #555;
+  color: #ffffff;
 }
 
 input[type="text"],
@@ -133,14 +132,6 @@ button:hover {
     margin-top: 20px;
     color: #FFEF00;
 }
-
-h2 {
-    color: #000;
-    padding: 20px;
-    margin-inline: -7px;
-    margin-top: -10px;
-
-  }
    
   .login {
     padding: 75px;
@@ -152,7 +143,7 @@ h2 {
    
   label {
     font-size: 12pt;
-    color: #555;
+    color: #ffffff;
   }
    
   input[type="text"],
@@ -180,6 +171,9 @@ h2 {
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: #FFEF00;
-    color:#000000;
+    background-color: #023047;
+    color:#ffffff;
   }
+footer p {
+  color: #ffffff;
+}
