@@ -1,0 +1,45 @@
+<<<<<<< HEAD
+=======
+.container {
+    background-color: #FFEF00;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    color: black;
+    
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #ffee00;
+}
+
+#successMessage {
+    margin-top: 20px;
+    color: #FFEF00;
+}
+>>>>>>> 35287e1b94aeb0cc77c56c956bce5d8f7e44054a
