@@ -7,61 +7,217 @@
   <link rel="stylesheet" href="/Assets/Css/header.css">
   <link rel="stylesheet" href="/Assets/Css/style.css">
   <link rel="stylesheet" href="/Assets/Css/footer.css">
+  <link rel="stylesheet" href="/Assets/Css/contact.css">
+  <link rel="stylesheet" href="/Assets/Css/ourteam.css">
+  <link rel="stylesheet" href="/Assets/Css/chart.css">
+  <link rel="stylesheet" href="/Assets/Css/table.css">
+  <link rel="stylesheet" href="/Assets/Css/chart2.css">
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header>
     <h1>Dashboard Website</h1>
     <nav>
       <ul>
-        <li><a class="home" href="index.html">Home</a></li>
-        <li><a class="visualisasi" href="visualisasi.html">Visualisasi</a></li>
-        <li><a class="settings" href="ourteam.html">Our Team</a></li>
-        <li><a class="contact" href="contact.html">Contact</a></li>
+        <li><a class="dashboard-home" href="index.html">Home</a></li>
+        <li><a class="dashboard-visualisasi" href="visualisasi.html">Visualisasi</a></li>
+        <li><a class="dashboard-settings" href="ourteam.html">Our Team</a></li>
+        <li><a class="dashboard-contact" href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-
+    
     <div class="vm-container">
       <h1 class="vm-title">VM Vending Machine</h1>
       <p class="vm-slogan">Your one-stop vending machine shop</p>
     </div>
 
-    <section class="dashboard">
+    <section class="dashboard-Overview">
       <h2>Welcome</h2>
       <p>Welcome to Team 2 Balikpapan - Dashboard</p>
-
-      <article class="widget1">
-        <h3>Quick Actions</h3>
-        <form>
-          <div>
-            <label for="action">Select Action:</label>
-            <select name="action" id="action">
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-            </select>
-          </div>
-          <div>
-            <label for="value">Enter Value:</label>
-            <input type="text" name="value" id="value">
-          </div>
-          <button type="submit">Submit</button>
-        </form>
-      </article>
-
-      <aside class="widget2">
-        <h3>Alerts</h3>
-        <p>No new alerts at this time.</p>
-      </aside>
     </section>
-  </main>
+
+    <section class="services-ourteam">
+      <div class="container-ourteam">
+        <h3>OUR TEAM</h3>
+        <div class="box">
+          <div class="col-4">
+            <div class="icon"><i class="fas fa-user"></i></div>
+            <h4>CINDI KAROLIN</h4>
+          </div>
+          <div class="col-4">
+            <div class="icon"><i class="fas fa-user"></i></div>
+            <h4>HAIKAL MUHAMMAD A.</h4>
+          </div>
+          <div class="col-4">
+            <div class="icon"><i class="fas fa-user"></i></div>
+            <h4>KHOLID FAUZY</h4>
+          </div>
+          <div class="col-4">
+            <div class="icon"><i class="fas fa-user"></i></div>
+            <h4>RINI KURNIASIH</h4>
+          </div>
+          <div class="col-4">
+            <div class="icon"><i class="fas fa-user"></i></div>
+            <h4>HIKMA ABDIA</h4>
+          </div>
+          <div class="col-4">
+            <div class="icon"><i class="fas fa-user"></i></div>
+            <h4>IRGY DWI V.</h4>
+          </div>
+          <div class="col-4">
+            <div class="icon"><i class="fas fa-user"></i></div>
+            <h4>MADE SHANTA RAIMA W.</h4>
+          </div>
+          <div class="col-4">
+            <div class="icon"><i class="fas fa-user"></i></div>
+            <h4>MUFIDATUL IZZA</h4>
+          </div>
+          <div class="col-4">
+            <div class="icon"><i class="fas fa-user"></i></div>
+            <h4>KEVIN KURNIA</h4>
+          </div>
+          <div class="col-4">
+            <div class="icon"><i class="fas fa-user"></i></div>
+            <h4>NOVA ENJELINA P.</h4>
+          </div>
+          <div class="col-4">
+            <div class="icon"><i class="fas fa-user"></i></div>
+            <h4>AMELIA PUTRI ROSALINA</h4>
+          </div>
+          <div class="col-4">
+            <div class="icon"><i class="fas fa-user"></i></div>
+            <h4>EOLIA GITA AFRIYANI</h4>
+          </div>
+          <div class="col-4">
+            <div class="icon"><i class="fas fa-user"></i></div>
+            <h4>AINUR ROKHIMAH</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-bar1">
+      <h2>Highest Location profitability</h2>
+      <div id="dashboard-row-bar1">
+        <div class="dashboard-column-bar1 dashboard-content-bar1">
+          <p>The highest Sales and Revenue are obtained from vending machine locations in:</p>
+          <div class="location">
+            <span class="location-title">1. Gutten Plans</span>
+          </div>
+          <div class="location">
+            <span class="location-title">2. EB Public Library</span>
+          </div>
+          <div class="location">
+            <span class="location-title">3. Brunswick Sq Mall</span>
+          </div>
+          <div class="location">
+            <span class="location-title">4. Earle Asphalt</span>
+          </div>
+        </div>
+        <div class="dashboard-column dashboard-barlocation">
+          <canvas id="barchart3"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-table">
+      <h2>TABLE</h2>
+      <div id="dashboard-row">
+        <div class="dashboard-column">
+          <table id="dashboard-table">
+            <thead>
+                <tr>
+                    <th>Location</th>
+                    <th>Machine</th>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th id="transDateHeader">Transaction Date</th>
+                    <th>Type</th>
+                    <th>Total Sales</th>
+                    <th>Revenue</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <div class="dashboard-pagination">
+            <button id="prevButton">Previous</button>
+            <button id="nextButton">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboard-chart">
+      <div class="dashboard-container">
+        <div class="dashboard-column">
+          <p>Chart 1 Title</p>
+          <canvas id="lineChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboard-chart">
+      <div class="dashboard-container">
+        <div class="dashboard-column">
+          <div class="chart-content">
+            <p>Chart 2 Title</p>
+            <canvas id="chart2"></canvas>
+          </div>
+        </div>
+        <div class="dashboard-column">
+          <div class="chart-content">
+            <p>Chart 3 Title</p>
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+    
 
   <footer>
-    <p>&copy; 2024 Team 2 Balikpapan - RevoU</p>
+    <div class="container">
+      <div class="column-contact">
+          <div class="row-contact">
+          <p>&copy; 2024 Team 2 Balikpapan - RevoU</p>
+        </div>
+        <div class="row-contact">
+          <form id="contactForm" onsubmit="return validateForm()">
+            <h2>Formulir Kontak</h2>
+            <div class="form-group">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Pesan:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Kirim</button>
+            <div id="successMessage" style="display:none;">Terkirim</div>
+        </form>
+        </div>
+      </div>
+  </div>
+  <p>&copy; 2024 Team 2 Balikpapan - RevoU</p>
   </footer>
 
   <script src="/Assets/Js/scroll.js"></script>
+  <script type="module" src="/Assets/Js/barchart3.js"></script>
+  <script type="module" src="/Assets/Js/chart2.js"></script>
+  <script type="module" src="/Assets/Js/chart3.js"></script>
+  <script type="module" src="/Assets/Js/table.js"></script>
+  <script type="module" src="/Assets/Js/linechart.js"></script>
 </body>
 </html>

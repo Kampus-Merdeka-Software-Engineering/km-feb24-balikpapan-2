@@ -1,0 +1,31 @@
+#dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #dashboard-table, #dashboard-table th, #dashboard-table td {
+    border: 1px solid rgb(255, 255, 255);
+  }
+  
+  #dashboard-table th, #dashboard-table td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .dashboard-pagination {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .dashboard-pagination button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    margin-bottom: 50px;
+    cursor: pointer;
+  }
+  
+  .dashboard-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Baris baru jika tidak muat dalam satu baris */
+  }

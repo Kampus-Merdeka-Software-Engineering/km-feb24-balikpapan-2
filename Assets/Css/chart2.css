@@ -1,0 +1,25 @@
+#dashboard-row-bar1 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .dashboard-column-bar1 {
+    flex: 1;
+    min-width: 300px; 
+    margin: 10px;
+  }
+  
+  .dashboard-content-bar1 {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .dashboard-barlocation-bar1 {
+    flex: 1;
+    min-width: 300px; 
+  }
+  
+  #barchart3 {
+    width: 100% !important;
+    height: auto !important;
+  }
