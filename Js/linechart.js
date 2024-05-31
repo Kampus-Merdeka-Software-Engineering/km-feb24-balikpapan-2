@@ -40,13 +40,28 @@ fetch('/Assets/Data/linechart.json')
           data: Object.values(monthlyRevenue),
           fill: false,
           borderColor: 'rgb(75, 192, 192)',
-          tension: 0.1
+          tension: 0.2
         }]
       },
       options: {
         scales: {
+          x: {
+            ticks: {
+              color: 'black' // Set x-axis text color to black
+            }
+          },
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            ticks: {
+              color: 'black' // Set y-axis text color to black
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: 'black' // Set legend text color to black
+            }
           }
         }
       }

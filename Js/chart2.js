@@ -1,6 +1,5 @@
 import data from '/Assets/Data/machine.json' assert { type: 'json' };
 
-        // Fungsi untuk menjumlahkan total sales dari semua mesin
         function calculateTotalSales(data) {
             let totalSales = {};
             data.forEach(machine => {
@@ -11,14 +10,12 @@ import data from '/Assets/Data/machine.json' assert { type: 'json' };
             return totalSales;
         }
 
-        // Menghitung total sales
         const totalSalesData = calculateTotalSales(data);
 
-        // Menyiapkan data untuk chart
+        
         const labels = Object.keys(totalSalesData);
         const dataValues = Object.values(totalSalesData);
 
-        // Membuat pie chart menggunakan Chart.js
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'pie',
@@ -27,13 +24,13 @@ import data from '/Assets/Data/machine.json' assert { type: 'json' };
                 datasets: [{
                     data: dataValues,
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                        // Tambahkan warna tambahan jika diperlukan
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(153, 102, 255, 0.5)',
+                        'rgba(255, 159, 64, 0.5)'
+                       
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
@@ -42,7 +39,7 @@ import data from '/Assets/Data/machine.json' assert { type: 'json' };
                         'rgba(75, 192, 192, 1)',
                         'rgba(153, 102, 255, 1)',
                         'rgba(255, 159, 64, 1)'
-                        // Tambahkan warna tambahan jika diperlukan
+                       
                     ],
                     borderWidth: 1
                 }]
@@ -50,9 +47,20 @@ import data from '/Assets/Data/machine.json' assert { type: 'json' };
             options: {
                 responsive: true,
                 plugins: {
+                    title: {
+                        display: true,
+                        text: 'Chart Title',
+                        color: 'black',
+                        font: {
+                            size: 14
+                        }
+                    },
                     legend: {
                         position: 'right',
-                    },
-                },
+                        labels: {
+                            color: 'black' 
+                        }
+                    }
+                }
             }
         });

@@ -11,9 +11,14 @@
     padding: 8px;
     text-align: center;
   }
+
+  #dashboard-table td {
+    font-size: 13px;
+  }
   
   #dashboard-table tr{
     color: #000000;
+    font-size: 14px;
   }
   .dashboard-pagination {
     margin: 20px 0;
