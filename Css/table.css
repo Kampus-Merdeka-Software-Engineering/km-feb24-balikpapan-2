@@ -2,9 +2,9 @@
     width: 100%;
     border-collapse: collapse;
   }
+
   #dashboard-table, #dashboard-table th, #dashboard-table td {
     border: 1px solid rgb(0, 0, 0);
-
   }
   
   #dashboard-table th, #dashboard-table td {
@@ -20,6 +20,7 @@
     color: #000000;
     font-size: 14px;
   }
+  
   .dashboard-pagination {
     margin: 20px 0;
     text-align: center;

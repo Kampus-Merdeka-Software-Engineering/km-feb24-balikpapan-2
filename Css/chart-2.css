@@ -53,6 +53,24 @@
   color: #000000;
 }
 
+#dashboard-row-bar2 {
+  display: flex;
+  flex-wrap: wrap;
+  color: #000000;
+}
+
+#dashboard-row-bar3 {
+  display: flex;
+  flex-wrap: wrap;
+  color: #000000;
+}
+
+#dashboard-row-bar4 {
+  display: flex;
+  flex-wrap: wrap;
+  color: #000000;
+}
+
 .dashboard-column-bar1 {
   flex: 1;
   min-width: 300px;
