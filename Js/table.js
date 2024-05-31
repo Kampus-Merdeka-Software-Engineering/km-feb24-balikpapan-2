@@ -66,6 +66,6 @@ import data from '/Assets/Data/datalengkap.json' assert { type: 'json' };
                 }
             });
 
-            sortData(sortOrder); // Initial sort
+            sortData(sortOrder);
             displayPage(currentPage);
         });
