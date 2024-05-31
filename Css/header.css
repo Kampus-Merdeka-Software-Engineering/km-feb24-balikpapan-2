@@ -10,13 +10,12 @@ header {
   top: 0;
   z-index: 1000;
   transition: background-color 0.3s ease-out;
-
 }
 
 header h1 {
   font-size: 36px;
   margin: 0;
-  color: #219EBC;
+  color: #8ecae6;
 }
 
 nav a:hover {

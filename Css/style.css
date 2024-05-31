@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #000000;
@@ -14,14 +14,14 @@ a {
 }
 
 a:hover {
-  color: #000000; 
+  color: #000000;
 }
 
 /* Main Content */
 
 .vm-container {
-  background-image: url(/Assets/Images/wallpaperflare.com_wallpaper.jpg);
-  background-size:contain;
+  background-image: url(/Assets/Images/vm2.jpg);
+  background-size: contain;
   padding: 500px;
   font-family: Arial, sans-serif;
   position: relative;
@@ -29,17 +29,19 @@ a:hover {
 }
 
 .vm-container::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, #8ECAE6 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 70%,
+    #8ecae6 100%
+  );
   pointer-events: none;
 }
-
-
 
 .vm-slogan {
   color: #ffffff;
@@ -51,6 +53,19 @@ a:hover {
   bottom: 20%;
   right: -10%;
   transform: translateX(-50%);
+  display: inline-block;
+  max-width: 100%;
+  white-space: pre-line;
+  background-color: rgba(98, 177, 222, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.vm-slogan::after {
+  content: "Our Vending Machine,\A Your Money-Generating Machine";
+  white-space: pre-line;
+  display: block;
 }
 
 /* Media Queries */
@@ -103,11 +118,5 @@ a:hover {
   .vm-slogan {
     font-size: 16px;
     bottom: 5%;
-  }
-}
-
-@media (max-width: 768px) {
-  .dashboard {
-    grid-template-columns: 1fr;
   }
 }

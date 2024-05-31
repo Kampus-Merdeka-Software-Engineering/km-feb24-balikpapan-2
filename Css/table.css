@@ -3,7 +3,7 @@
     border-collapse: collapse;
   }
   #dashboard-table, #dashboard-table th, #dashboard-table td {
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
 
   }
   
@@ -13,7 +13,7 @@
   }
   
   #dashboard-table tr{
-    color: #ffffff;
+    color: #000000;
   }
   .dashboard-pagination {
     margin: 20px 0;
@@ -35,4 +35,22 @@
 
   #dashboard-table th {
     background-color: rgba(187, 187, 187, 0.5);
+  }
+
+  #prevButton {
+    background-color: #023047;
+    color:rgb(255, 255, 255);
+  }
+
+  #prevButton:hover{
+    background-color: #8ECAE6;
+  }
+
+  #nextButton{
+    background-color: #023047;
+    color: rgb(255, 255, 255);
+  }
+
+  #nextButton:hover{
+    background-color: #8ECAE6;
   }
