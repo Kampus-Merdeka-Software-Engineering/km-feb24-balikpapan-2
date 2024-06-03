@@ -2,7 +2,7 @@ import data from '/Assets/Data/datalengkap.json' assert { type: 'json' };
 
 document.addEventListener('DOMContentLoaded', () => {
     let currentPage = 1;
-    const itemsPerPage = 10;
+    const itemsPerPage = 8;
     let transDateSortOrder = 'default';
     let revenueSortOrder = 'default';
     let totalSalesSortOrder = 'default';
