@@ -144,29 +144,61 @@
       <h2 class="analytics-title">Table</h2>
       <div id="dashboard-row">
         <div class="dashboard-column">
+          <div class="filter-section">
+            <div class="filter-item">
+                <label for="locationFilter"> Search by Location:</label>
+                <input type="text" id="locationFilter" placeholder="All Location">
+            </div>
+            <div class="filter-item">
+                <label for="machineFilter">Search by Machine:</label>
+                <input type="text" id="machineFilter" placeholder="All Machine">
+            </div>
+            <div class="filter-item">
+                <label for="categoryFilter">Search by Category:</label>
+                <input type="text" id="categoryFilter" placeholder="All Category">
+            </div>
+            <div class="filter-item">
+                <label for="productFilter">Search by Product:</label>
+                <input type="text" id="productFilter" placeholder="All Product">
+            </div>
+        </div>
+        
           <table id="dashboard-table">
             <thead>
-                <tr>
-                    <th>Location</th>
-                    <th>Machine</th>
-                    <th>Product</th>
-                    <th>Category</th>
-                    <th id="transDateHeader">Transaction Date</th>
-                    <th>Type</th>
-                    <th>Total Sales</th>
-                    <th>Revenue</th>
-                </tr>
+              <tr>
+                <th>Location</th>
+                <th>Machine</th>
+                <th>Category</th>
+                <th>Product</th>
+                <th id="transDateHeader">
+                  Transaction Date
+                  <span class="sort-icon"></span>
+                </th>
+                <th>Type</th>
+                <th id="totalSalesHeader">Total Sales
+                  <span class="sort-icon"></span>
+                </th>
+                <th id="revenueHeader">
+                  Revenue
+                  <span class="sort-icon"></span>
+                </th>
+              </tr>
             </thead>
             <tbody>
             </tbody>
           </table>
+          <div id="pageIndicator">Page 1 of 1</div>
           <div class="dashboard-pagination">
+            <button id="firstButton">First</button>
             <button id="prevButton">Previous</button>
             <button id="nextButton">Next</button>
+            <button id="lastButton">Last</button>
           </div>
         </div>
       </div>
     </section>
+    
+    
 
     <section class="dashboard2">
       <h2 class="analytics-title">Highest Location profitability</h2>
