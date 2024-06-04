@@ -21,15 +21,9 @@ function validateForm() {
         return false;
     }
 
-    // Show success modal
-    document.getElementById('successModal').style.display = 'block';
-
-    // Reload the page after 2 seconds
-    setTimeout(() => {
-        location.reload();
-    }, 2000);
-
-    return false;  // Prevent actual form submission for demonstration
+    // Show confirm modal
+    document.getElementById('confirmModal').style.display = 'block';
+    return false;  
 }
 
 function validateEmail(email) {
@@ -44,9 +38,28 @@ function closeModal() {
 function closeErrorModal1() {
     document.getElementById('errorModalall').style.display = 'none';
 }
+
 function closeErrorModal2() {
     document.getElementById('errorModalemail').style.display = 'none';
 }
+
 function closeErrorModal4() {
     document.getElementById('errorModalname').style.display = 'none';
+}
+
+function closeConfirmModal() {
+    document.getElementById('confirmModal').style.display = 'none';
+}
+
+function submitForm() {
+    // Close confirm modal
+    document.getElementById('confirmModal').style.display = 'none';
+    
+    // Show success modal
+    document.getElementById('successModal').style.display = 'block';
+
+    // Reload the page after 2 seconds
+    setTimeout(() => {
+        location.reload();
+    }, 2000);
 }

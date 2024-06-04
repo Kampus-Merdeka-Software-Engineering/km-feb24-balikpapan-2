@@ -319,27 +319,36 @@
     </div>
   </div>
 
-  <div id="errorModalall" class="modal"> <!-- Modal untuk input yang kosong -->
+  <div id="errorModalall" class="modal"> 
     <div class="modal-content">
         <span class="close" onclick="closeErrorModal1()">&times;</span>
         <img src="Assets/Images/failed.gif" alt="Error" class="error-icon">
-        <p style="color: black;">Semua bidang harus diisi!</p>
+        <p style="color: black;">Jangan Lupa Semua bidang harus diisi!</p>
     </div>
 </div>
 
-<div id="errorModalemail" class="modal"> <!-- Modal untuk email tidak valid -->
+<div id="errorModalemail" class="modal"> 
     <div class="modal-content">
         <span class="close" onclick="closeErrorModal2()">&times;</span>
         <img src="Assets/Images/email.gif" alt="Error" class="error-icon">
-        <p style="color: black;">Email tidak valid!</p>
+        <p style="color: black;">Email yang anda masukkan tidak valid!</p>
     </div>
 </div>
 
-<div id="errorModalname" class="modal"> <!-- Modal for name less than 5 characters -->
+<div id="errorModalname" class="modal">
   <div class="modal-content">
       <span class="close" onclick="closeErrorModal4()">&times;</span>
       <img src="Assets/Images/fail.gif" alt="Error" class="error-icon">
       <p style="color: black;">Nama harus memiliki panjang minimal 5 karakter!</p>
+  </div>
+</div>
+
+<div id="confirmModal" class="modal">
+  <div class="modal-content">
+      <img src="Assets/Images/checklist.gif" alt="Error" class="error-icon">
+      <p style="color: black;">Apakah data yang Anda masukkan sudah benar?</p>
+      <button onclick="submitForm()">Iya</button>
+      <button onclick="closeConfirmModal()">Tidak</button>
   </div>
 </div>
 
