@@ -31,7 +31,7 @@
   .dashboard-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Baris baru jika tidak muat dalam satu baris */
+    flex-wrap: wrap;
   }
 
   #dashboard-table th {
@@ -40,18 +40,26 @@
 
   #prevButton {
     background-color: #023047;
-    color:rgb(255, 255, 255);
-  }
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: 2px solid #023047;
+    padding: 10px 20px;
+}
 
-  #prevButton:hover{
+#prevButton:hover {
     background-color: #8ECAE6;
-  }
+    border: 2px solid #8ECAE6;
+}
 
-  #nextButton{
+#nextButton {
     background-color: #023047;
     color: rgb(255, 255, 255);
-  }
+    border: 2px solid #023047;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
 
-  #nextButton:hover{
+#nextButton:hover {
     background-color: #8ECAE6;
-  }
+    border: 2px solid #8ECAE6;
+}
