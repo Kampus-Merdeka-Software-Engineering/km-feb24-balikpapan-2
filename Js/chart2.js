@@ -49,7 +49,7 @@ import data from '/Assets/Data/machine.json' assert { type: 'json' };
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Chart Title',
+                        text: 'Machine Profitability',
                         color: 'black',
                         font: {
                             size: 14

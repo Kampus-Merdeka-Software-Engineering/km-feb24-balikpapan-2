@@ -1,43 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Seymour+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Seymour+One&display=swap');
+
+.dashboard-table{
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.dashboard-table h1{
+  font-family: "Lato", sans-serif;
+  font-weight: 800;
+  font-style:normal;
+  text-align: center;
+  font-size: 40px;
+}
+
+.dashboard-table th{
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.filter-item{
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.filter-item ::placeholder{
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 12px;
+}
+
 #dashboard-table {
   width: 100%;
   border-collapse: collapse;
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
 }
 
-  #dashboard-table, #dashboard-table th, #dashboard-table td {
-    border: 1px solid rgb(0, 0, 0);
-  }
-  
-  #dashboard-table th, #dashboard-table td {
-    padding: 8px;
-    text-align: center;
-  }
-  
-  #dashboard-table tr{
-    color: #000000;
-  }
-  
-  .dashboard-pagination {
-    margin: 20px 0;
-    text-align: center;
-  }
-  
-  .dashboard-pagination button {
-    padding: 10px 20px;
-    margin: 0 5px;
-    margin-bottom: 50px;
-    cursor: pointer;
-  }
-  
-  .dashboard-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-#dashboard-table, #dashboard-table th, #dashboard-table td {
+#dashboard-table,
+#dashboard-table th,
+#dashboard-table td {
   border: 1px solid rgb(0, 0, 0);
 }
 
-#dashboard-table th, #dashboard-table td {
+#dashboard-table th,
+#dashboard-table td {
+  padding: 8px;
+  text-align: center;
+}
+
+#dashboard-table tr {
+  color: #000000;
+}
+
+.dashboard-pagination {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.dashboard-pagination button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#dashboard-table,
+#dashboard-table th,
+#dashboard-table td {
+  border: 1px solid rgb(0, 0, 0);
+}
+
+#dashboard-table th,
+#dashboard-table td {
   padding: 8px;
   text-align: center;
 }
@@ -77,54 +128,68 @@
   text-align: center;
 }
 
-  #prevButton {
-    background-color: #023047;
-    color: rgb(255, 255, 255);
-    border-radius: 5px;
-    border: 2px solid #023047;
-    padding: 10px 20px;
-}
-
-#prevButton:hover {
-    background-color: #8ECAE6;
-    border: 2px solid #8ECAE6;
-}
-
-#nextButton {
-    background-color: #023047;
-    color: rgb(255, 255, 255);
-    border: 2px solid #023047;
-    border-radius: 5px;
-    padding: 10px 20px;
-}
-
-#nextButton:hover {
-    background-color: #8ECAE6;
-    border: 2px solid #8ECAE6;
+button{
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 12px;
 }
 
 #prevButton {
   background-color: #023047;
   color: rgb(255, 255, 255);
-  display: inline-block; /* Tambahkan properti display */
+  border-radius: 5px;
+  border: 2px solid #023047;
+  padding: 10px 20px;
+}
+
+#prevButton:hover {
+  background-color: #8ecae6;
+  border: 2px solid #8ecae6;
+  color: #000000;
 }
 
 #nextButton {
   background-color: #023047;
   color: rgb(255, 255, 255);
-  display: inline-block; /* Tambahkan properti display */
+  border: 2px solid #023047;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+#nextButton:hover {
+  background-color: #8ecae6;
+  border: 2px solid #8ecae6;
+  color: #000000;
 }
 
 #firstButton {
   background-color: #023047;
   color: rgb(255, 255, 255);
-  display: inline-block; /* Tambahkan properti display */
+  border-radius: 5px;
+  border: 2px solid #023047;
+  padding: 10px 20px;
+}
+
+#firstButton:hover {
+  background-color: #8ecae6;
+  border: 2px solid #8ecae6;
+  color: #000000;
 }
 
 #lastButton {
   background-color: #023047;
   color: rgb(255, 255, 255);
-  display: inline-block; /* Tambahkan properti display */
+  border-radius: 5px;
+  border: 2px solid #023047;
+  padding: 10px 20px;
+}
+
+#lastButton:hover {
+  background-color: #8ecae6;
+  border: 2px solid #8ecae6;
+  color: #000000;
 }
 
 /* Menyembunyikan tombol prevButton saat berada di halaman pertama */
@@ -142,17 +207,16 @@
 }
 
 .sort-default .sort-icon::before {
-  content: '⭥';
+  content: "⭥";
 }
 
 .sort-asc .sort-icon::before {
-  content: '⭡';
+  content: "⭡";
 }
 
 .sort-desc .sort-icon::before {
-  content: '⭣';
+  content: "⭣";
 }
-
 
 /* Filter Section Styles */
 .filter-section {

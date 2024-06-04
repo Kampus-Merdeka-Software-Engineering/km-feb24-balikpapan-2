@@ -3,6 +3,23 @@
   padding: 20px;
 }
 
+.text-aemas{
+  display: block;
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.column-feedback ::placeholder{
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
+
 .contact-section {
   display: flex;
   flex-direction: row;
@@ -36,6 +53,9 @@
   font-weight: bold;
   margin-bottom: 5px;
   color: black;
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  font-style:normal;
 }
 
 .column-feedback form input[type="text"],

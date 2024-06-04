@@ -39,7 +39,7 @@ fetch('/Assets/Data/linechart.json')
           label: 'Monthly Revenue',
           data: Object.values(monthlyRevenue),
           fill: false,
-          borderColor: 'rgb(75, 192, 192)',
+          borderColor: 'rgba(255, 183, 3, 1)',
           tension: 0.2
         }]
       },

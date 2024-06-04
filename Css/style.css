@@ -1,15 +1,16 @@
-/* Global Styles */
-body {
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #000000;
-  margin: 0;
-  padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Seymour+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Seymour+One&display=swap');
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 a {
@@ -21,7 +22,6 @@ a:hover {
   color: #000000;
 }
 
-/* Main Content */
 
 .vm-container {
   background-image: url(/Assets/Images/vm2.jpg);
@@ -48,15 +48,18 @@ a:hover {
 }
 
 .vm-slogan {
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: bold;
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  color: #023047;
+  font-size: 40px;
   margin: 10px 0;
-  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  text-shadow: 1px 1px 2px rgba(187, 235, 255, 0.5);
   position: absolute;
-  bottom: 20%;
-  right: -10%;
-  transform: translateX(-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: inline-block;
   max-width: 100%;
   white-space: pre-line;
@@ -72,17 +75,12 @@ a:hover {
   display: block;
 }
 
+
 /* Media Queries */
 
 @media (max-width: 1200px) {
   .vm-container {
     padding: 200px;
-  }
-
-  .vm-title {
-    font-size: 35px;
-    margin: 8%;
-    top: 8%;
   }
 
   .vm-slogan {
@@ -96,12 +94,6 @@ a:hover {
     padding: 150px;
   }
 
-  .vm-title {
-    font-size: 30px;
-    margin: 6%;
-    top: 6%;
-  }
-
   .vm-slogan {
     font-size: 18px;
     bottom: 6%;
@@ -111,12 +103,6 @@ a:hover {
 @media (max-width: 480px) {
   .vm-container {
     padding: 100px;
-  }
-
-  .vm-title {
-    font-size: 25px;
-    margin: 5%;
-    top: 5%;
   }
 
   .vm-slogan {

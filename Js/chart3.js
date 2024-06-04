@@ -51,7 +51,7 @@ const myChart = new Chart(ctx, {
         plugins: {
             title: {
                 display: true,
-                text: 'Chart Title',
+                text: 'Sales & Revenue by Categories',
                 color: 'black',
                 font: {
                     size: 14

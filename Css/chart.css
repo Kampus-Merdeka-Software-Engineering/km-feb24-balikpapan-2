@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Seymour+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Seymour+One&display=swap');
+
+.heading-analytics {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255 0, 5);
+  font-family: "Lato", sans-serif;
+  font-weight: 800;
+  font-style:normal;
+}
+
+.dashboard1 {
+  padding: 10%;
+  background: linear-gradient(to bottom, #219ebc 0%, #1c90d8 50%, #1c70c8 100%);
+}
+
+.dashboard-table {
+  background: linear-gradient(to bottom, #1c70c8 0%, #8fb8e0 50%, white 100%);
+  padding: 5%;
+}
+
+.dashboard2 {
+  background: linear-gradient(to bottom, white 0%, #8fb8e0 50%, #219ebc 100%);
+  padding: 10%;
+}
+
+.dashboard3 {
+  background: linear-gradient(to bottom, #219ebc 0%, #8fb8e0 50%, white 100%);
+  padding: 10%;
+}
+
+.dashboard4 {
+  background-color: #ffffff;
+  padding: 10%;
+}
+
+.analytics-title {
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  text-align: start;
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255 0, 5);
+}
+
+.analytics-text{
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 19px;
+  text-align: start;
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 2px rgb(255, 255, 255 0, 5);
+}
+
+.location{
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 19px;
+}
+
+#dashboard-row-bar1 {
+  display: flex;
+  flex-wrap: wrap;
+  color: #000000;
+}
+
+#dashboard-row-bar2 {
+  display: flex;
+  flex-wrap: wrap;
+  color: #000000;
+}
+
+#dashboard-row-bar3 {
+  display: flex;
+  flex-wrap: wrap;
+  color: #000000;
+}
+
+#dashboard-row-bar4 {
+  display: flex;
+  flex-wrap: wrap;
+  color: #000000;
+}
+
+.dashboard-column-bar1 {
+  flex: 1;
+  min-width: 300px;
+  margin: 20px;
+}
+
+.dashboard-content-bar1 {
+  flex: 1;
+  min-width: 300px;
+}
+
+.dashboard-barlocation-bar1 {
+  flex: 1;
+  min-width: 300px;
+}
+
+#barchart3{
+  width: 100% !important;
+  height: auto !important;
+}
+
+.dashboard-column {
+  flex: 1;
+  margin: 0 20px;
+}
+
+#lineChart {
+  max-width: 700px; 
+  width: 300%; 
+  margin: 0 auto;
+}
+
+#chart3 {
+  max-width: 800px; 
+  width: 400%;
+  margin: 0 auto;
+}
+
+#myChart {
+  max-width: 500px;
+  width: 300%;
+  margin: 0 auto;
+}

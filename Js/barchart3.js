@@ -61,7 +61,7 @@ const barchart3 = new Chart(ctx, {
         plugins: {
             title: {
                 display: true,
-                text: 'Chart Title',
+                text: 'Sales & Revenue by Location',
                 color: 'black',
                 font: {
                     size: 14

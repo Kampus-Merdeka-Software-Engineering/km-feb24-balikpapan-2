@@ -22,16 +22,19 @@
 </head>
 <body>
   <header>
-    <h1><a href="index.html">Dashboard Website</a></h1>
+    <div class="logo-title">
+        <img src="/Assets/Images/vending_machine_logo.png" alt="Vending Machine Logo" id="logo">
+        <h1><a href="index.html">Vending Machine</a></h1>
+    </div>
     <nav>
-      <ul>
-        <li><a class="dashboard-home" href="index.html">Home</a></li>
-        <li><a class="dashboard-settings" href="#ourteam">Our Team</a></li>
-        <li><a class="dashboard-visualisasi" href="#analytics">Analytics</a></li>
-        <li><a class="dashboard-contact" href="#contact">Contact Us</a></li>
-      </ul>
+        <ul>
+          <li><a class="dashboard-home" href="index.html">Home</a></li>
+          <li><a class="dashboard-settings" href="#ourteam">Our Team</a></li>
+          <li><a class="dashboard-visualisasi" href="#analytics">Analytics</a></li>
+          <li><a class="dashboard-contact" href="#contact">Contact Us</a></li>
+        </ul>
     </nav>
-  </header>
+</header>
 
   <main>
 
@@ -132,7 +135,7 @@
       <h2 class="analytics-title">Sales and Revenue Trends in 2022</h2>
       <div id="dashboard-row-bar1">
         <div class="dashboard-column-bar1 dashboard-content-bar1">
-          <p class="analytics-text">The line chart illustrates the sales and revenue generated throughout 2022. Notably, both metrics peaked in July and August, indicating the highest performance of the year during these months. This surge was significantly higher compared to other months, suggesting a strong seasonal demand and successful promotional activities during this period.</p>
+          <p class="analytics-text">The line chart illustrates the sales and revenue generated throughout 2022. Notably, both metrics peaked in July and August, indicating the highest performance of the year during these months.</p>
           <p class="analytics-text">*Based on the 2022 vending machine sales data in Central New Jersey</p>
         </div>
         <div class="dashboard-column dashboard-barlocation">
@@ -142,7 +145,7 @@
     </section>
 
     <section class="dashboard-table">
-      <h2 class="analytics-title" style="font-size: 36px; text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">TABLE</h2>
+      <h1>Data Table</h1>
       <br>
       <div id="dashboard-row">
         <div class="dashboard-column">
@@ -283,7 +286,7 @@
  <footer id="contact">
     <section class="contact-section">
         <div class="column-text">
-            <p>Anak Emas is a top-performing vending machine in Central New Jersey. Since its launch in 2022, Anak Emas has become the go-to choice for everyone, setting trends across the region. With a presence in multiple locations and an extensive range of products, Anak Emas continues to achieve excellent sales performance. Join us now and own the most lucrative vending machine franchise in CNJ!</p>
+            <p class="text-aemas">AEmas is a top-performing vending machine in Central New Jersey. Since its launch in 2022, AEmas has become the go-to choice for everyone, setting trends across the region. With a presence in multiple locations and an extensive range of products, AEmas continues to achieve excellent sales performance. Join us now and own the most lucrative vending machine franchise in CNJ!</p>
         </div>
         <div class="column-feedback">
             <form action="/index.html" method="POST" onsubmit="return validateForm();">
@@ -312,7 +315,7 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
         <img src="/Assets/Images/success.gif" alt="Success" class="success-icon">
-        <p style="color: black;">Pengumpulan berhasil! Terima kasih atas pesan Anda.</p>
+        <p style="color: black;">Pesan anda berhasil terkirim! Terima kasih atas pesan Anda.</p>
     </div>
   </div>
 
@@ -339,9 +342,6 @@
       <p style="color: black;">Nama harus memiliki panjang minimal 5 karakter!</p>
   </div>
 </div>
-
-
-
 
   <script src="/Js/scroll.js"></script>
   <script src="/Js/contact.js"></script>
