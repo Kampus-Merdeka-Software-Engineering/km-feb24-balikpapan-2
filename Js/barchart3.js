@@ -16,9 +16,7 @@ function calculateTotals(data) {
     return totals;
 }
 
-
 const LocationTotals = calculateTotals(data);
-
 
 const Location = Object.keys(LocationTotals);
 const total_Sales = Location.map(Location => LocationTotals[Location].Total_Sales);
@@ -33,15 +31,15 @@ const barchart3 = new Chart(ctx, {
             {
                 label: 'Total Sales',
                 data: total_Sales,
-                backgroundColor: 'rgba(75, 192, 192, 1)',
-                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(230, 173, 188, 1)',
+                borderColor: 'rgba(230, 173, 188, 1)',
                 borderWidth: 1
             },
             {
                 label: 'Revenue',
                 data: revenue,
-                backgroundColor: 'rgba(153, 102, 255, 1)',
-                borderColor: 'rgba(153, 102, 255, 1)',
+                backgroundColor: 'rgba(230, 216, 173, 1)',
+                borderColor: 'rgba(230, 216, 173, 1)',
                 borderWidth: 1
             }
         ]
@@ -51,25 +49,27 @@ const barchart3 = new Chart(ctx, {
         scales: {
             x: {
                 ticks: {
-                    font: {
-                        weight: 'bold'
-                    }
+                    color: 'black',  // Warna tulisan hitam
                 }
             },
             y: {
                 ticks: {
-                    font: {
-                        weight: 'bold'
-                    }
+                    color: 'black',  // Warna tulisan hitam
                 }
             }
         },
         plugins: {
+            title: {
+                display: true,
+                text: 'Chart Title',
+                color: 'black',
+                font: {
+                    size: 14
+                }
+            },
             legend: {
                 labels: {
-                    font: {
-                        weight: 'bold'
-                    }
+                    color: 'black',  // Warna tulisan hitam
                 }
             }
         }

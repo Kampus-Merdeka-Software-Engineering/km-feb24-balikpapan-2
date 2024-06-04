@@ -34,15 +34,15 @@ const myChart = new Chart(ctx, {
             {
                 label: 'Total Sales',
                 data: totalSales,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
+                backgroundColor: 'rgba(255, 183, 3, 1)',
+                borderColor: 'rgba(255, 183, 3, 1)',
                 borderWidth: 1
             },
             {
                 label: 'Revenue',
                 data: revenue,
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(251,133,0, 1)',
+                borderColor: 'rgba(251,133,0, 1)',
                 borderWidth: 1
             }
         ]
@@ -50,14 +50,31 @@ const myChart = new Chart(ctx, {
     options: {
         plugins: {
             title: {
-              display: true,
-              text: 'Chart Title',
+                display: true,
+                text: 'Chart Title',
+                color: 'black',
+                font: {
+                    size: 14
+                }
+            },
+            legend: {
+                labels: {
+                    color: 'black'
+                }
+            }
+        },
         scales: {
+            x: {
+                ticks: {
+                    color: 'black'
+                }
+            },
             y: {
-                beginAtZero: true
+                beginAtZero: true,
+                ticks: {
+                    color: 'black'
+                }
             }
         }
-    }
-}
     }
 });

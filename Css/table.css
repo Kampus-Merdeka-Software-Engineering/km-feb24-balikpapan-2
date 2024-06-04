@@ -1,7 +1,7 @@
 #dashboard-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
+  width: 100%;
+  border-collapse: collapse;
+}
 
   #dashboard-table, #dashboard-table th, #dashboard-table td {
     border: 1px solid rgb(0, 0, 0);
@@ -33,10 +33,49 @@
     justify-content: center;
     flex-wrap: wrap;
   }
+#dashboard-table, #dashboard-table th, #dashboard-table td {
+  border: 1px solid rgb(0, 0, 0);
+}
 
-  #dashboard-table th {
-    background-color: rgba(187, 187, 187, 0.5);
-  }
+#dashboard-table th, #dashboard-table td {
+  padding: 8px;
+  text-align: center;
+}
+
+#dashboard-table td {
+  font-size: 13px;
+}
+
+#dashboard-table tr {
+  color: #000000;
+  font-size: 14px;
+}
+
+.dashboard-pagination {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.dashboard-pagination button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Baris baru jika tidak muat dalam satu baris */
+}
+
+#dashboard-table th {
+  background-color: rgba(187, 187, 187, 0.5);
+}
+
+#pageIndicator {
+  text-align: center;
+}
 
   #prevButton {
     background-color: #023047;
@@ -62,4 +101,100 @@
 #nextButton:hover {
     background-color: #8ECAE6;
     border: 2px solid #8ECAE6;
+}
+
+#prevButton {
+  background-color: #023047;
+  color: rgb(255, 255, 255);
+  display: inline-block; /* Tambahkan properti display */
+}
+
+#nextButton {
+  background-color: #023047;
+  color: rgb(255, 255, 255);
+  display: inline-block; /* Tambahkan properti display */
+}
+
+#firstButton {
+  background-color: #023047;
+  color: rgb(255, 255, 255);
+  display: inline-block; /* Tambahkan properti display */
+}
+
+#lastButton {
+  background-color: #023047;
+  color: rgb(255, 255, 255);
+  display: inline-block; /* Tambahkan properti display */
+}
+
+/* Menyembunyikan tombol prevButton saat berada di halaman pertama */
+#prevButton[disabled] {
+  display: none;
+}
+
+/* Menyembunyikan tombol nextButton saat berada di halaman terakhir */
+#nextButton[disabled] {
+  display: none;
+}
+
+.sort-icon {
+  margin-left: 8px;
+}
+
+.sort-default .sort-icon::before {
+  content: '⭥';
+}
+
+.sort-asc .sort-icon::before {
+  content: '⭡';
+}
+
+.sort-desc .sort-icon::before {
+  content: '⭣';
+}
+
+
+/* Filter Section Styles */
+.filter-section {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-item label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #000000;
+}
+
+.filter-item input {
+  padding: 8px;
+  background-color: #85b3ca;
+  border: 3px solid #3057ac;
+  border-radius: 8px;
+  width: 200px;
+  transition: all 0.3s ease;
+  color: #141414;
+  font-size: 14px;
+}
+
+.filter-item input::placeholder {
+  color: #141414;
+}
+
+.filter-item input:focus {
+  outline: none;
+}
+
+.filter-item input:not(:placeholder-shown) {
+  background-color: #85b3ca;
 }

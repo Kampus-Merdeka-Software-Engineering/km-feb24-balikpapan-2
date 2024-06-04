@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/Css/chart.css">
   <link rel="stylesheet" href="/Css/table.css">
   <link rel="stylesheet" href="/Css/chart-2.css">
+  <link rel="stylesheet" href="/Css/pop_up.css">
   <link
     rel="stylesheet"
     type="text/css"
@@ -132,41 +133,73 @@
       <div id="dashboard-row-bar1">
         <div class="dashboard-column-bar1 dashboard-content-bar1">
           <p class="analytics-text">The line chart illustrates the sales and revenue generated throughout 2022. Notably, both metrics peaked in July and August, indicating the highest performance of the year during these months. This surge was significantly higher compared to other months, suggesting a strong seasonal demand and successful promotional activities during this period.</p>
+          <p class="analytics-text">*Based on the 2022 vending machine sales data in Central New Jersey</p>
         </div>
         <div class="dashboard-column dashboard-barlocation">
           <canvas id="lineChart"></canvas>
         </div>
-        <p class="analytics-text">*Based on the 2022 vending machine sales data in Central New Jersey</p>
       </div>
     </section>
 
     <section class="dashboard-table">
-      <h2 class="analytics-title">Table</h2>
+      <h2 class="analytics-title" style="font-size: 36px; text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">TABLE</h2>
+      <br>
       <div id="dashboard-row">
         <div class="dashboard-column">
+          <div class="filter-section">
+            <div class="filter-item">
+                <label for="locationFilter"> Search by Location:</label>
+                <input type="text" id="locationFilter" placeholder="All Location">
+            </div>
+            <div class="filter-item">
+                <label for="machineFilter">Search by Machine:</label>
+                <input type="text" id="machineFilter" placeholder="All Machine">
+            </div>
+            <div class="filter-item">
+                <label for="categoryFilter">Search by Category:</label>
+                <input type="text" id="categoryFilter" placeholder="All Category">
+            </div>
+            <div class="filter-item">
+                <label for="productFilter">Search by Product:</label>
+                <input type="text" id="productFilter" placeholder="All Product">
+            </div>
+        </div>
           <table id="dashboard-table">
             <thead>
-                <tr>
-                    <th>Location</th>
-                    <th>Machine</th>
-                    <th>Product</th>
-                    <th>Category</th>
-                    <th id="transDateHeader">Transaction Date</th>
-                    <th>Type</th>
-                    <th>Total Sales</th>
-                    <th>Revenue</th>
-                </tr>
+              <tr>
+                <th>Location</th>
+                <th>Machine</th>
+                <th>Category</th>
+                <th>Product</th>
+                <th id="transDateHeader">
+                  Transaction Date
+                  <span class="sort-icon"></span>
+                </th>
+                <th>Type</th>
+                <th id="totalSalesHeader">Total Sales
+                  <span class="sort-icon"></span>
+                </th>
+                <th id="revenueHeader">
+                  Revenue
+                  <span class="sort-icon"></span>
+                </th>
+              </tr>
             </thead>
             <tbody>
             </tbody>
           </table>
+          <div id="pageIndicator">Page 1 of 1</div>
           <div class="dashboard-pagination">
+            <button id="firstButton">First</button>
             <button id="prevButton">Previous</button>
             <button id="nextButton">Next</button>
+            <button id="lastButton">Last</button>
           </div>
         </div>
       </div>
     </section>
+    
+    
 
     <section class="dashboard2">
       <h2 class="analytics-title">Highest Location profitability</h2>
@@ -210,11 +243,11 @@
           <div class="location">
             <span class="location-title">4. Water</span>
           </div>
+          <p class="analytics-text">*Based on the 2022 vending machine sales data in Central New Jersey</p>
         </div>
         <div class="dashboard-column dashboard-barlocation">
           <canvas id="chart2"></canvas>
         </div>
-        <p class="analytics-text">*Based on the 2022 vending machine sales data in Central New Jersey</p>
       </div>
     </section>
 
@@ -247,36 +280,71 @@
     </section>
     
 
-  <footer id="contact">
+ <footer id="contact">
     <section class="contact-section">
-      <div class="column-text">
-        <p>Anak Emas is a top-performing vending machine in Central New Jersey. Since its launch in 2022, Anak Emas has become the go-to choice for everyone, setting trends across the region. With a presence in multiple locations and an extensive range of products, Anak Emas continues to achieve excellent sales performance. Join us now and own the most lucrative vending machine franchise in CNJ!</p>
-    </div>
-    <div class="column-feedback">
-      <form action="/index.html" method="POST" onsubmit="analytics()">
-        <div>
-          <label>Name</label>
-          <input type="text" name="Name" id="Name"
-          required minlength="5" maxlength="12" placeholder="Nama" />
+        <div class="column-text">
+            <p>Anak Emas is a top-performing vending machine in Central New Jersey. Since its launch in 2022, Anak Emas has become the go-to choice for everyone, setting trends across the region. With a presence in multiple locations and an extensive range of products, Anak Emas continues to achieve excellent sales performance. Join us now and own the most lucrative vending machine franchise in CNJ!</p>
         </div>
-        <div>
-          <label>Email</label>
-          <input type="Email" name="Email" id="Email" placeholder="example@gmail.com" />
+        <div class="column-feedback">
+            <form action="/index.html" method="POST" onsubmit="return validateForm();">
+                <div>
+                    <label>Name</label>
+                    <input type="text" name="Name" id="Name"  maxlength="12" placeholder="Nama" />
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="Email" name="Email" id="Email" placeholder="example@gmail.com" />
+                </div>
+                <div>
+                    <label>Message</label>
+                    <textarea cols="40" rows="5" name="Message" id="Message" placeholder="Isikan pesan yang ingin anda sampaikan"></textarea>
+                </div>
+                <div>
+                    <button type="submit" value="Daftar" class="tombol">Kirim</button>
+                </div>
+            </form>
         </div>
-        <div>
-          <label>Message</label>
-          <textarea cols="40" rows="5" name="Message" id="Message" placeholder="Isikan pesan yang ingin anda sampaikan"></textarea>
-        </div>
-        <div>
-          <button type="submit" value="Daftar" class="tombol">Kirim</button>
-        </div>
-      </form>
-    </div>
     </section>
   <p>&copy; 2024 Team 2 Balikpapan - RevoU</p>
   </footer>
 
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img src="/Assets/Images/success.gif" alt="Success" class="success-icon">
+        <p style="color: black;">Pengumpulan berhasil! Terima kasih atas pesan Anda.</p>
+    </div>
+  </div>
+
+  <div id="errorModalall" class="modal"> <!-- Modal untuk input yang kosong -->
+    <div class="modal-content">
+        <span class="close" onclick="closeErrorModal1()">&times;</span>
+        <img src="Assets/Images/failed.gif" alt="Error" class="error-icon">
+        <p style="color: black;">Semua bidang harus diisi!</p>
+    </div>
+</div>
+
+<div id="errorModalemail" class="modal"> <!-- Modal untuk email tidak valid -->
+    <div class="modal-content">
+        <span class="close" onclick="closeErrorModal2()">&times;</span>
+        <img src="Assets/Images/email.gif" alt="Error" class="error-icon">
+        <p style="color: black;">Email tidak valid!</p>
+    </div>
+</div>
+
+<div id="errorModalname" class="modal"> <!-- Modal for name less than 5 characters -->
+  <div class="modal-content">
+      <span class="close" onclick="closeErrorModal4()">&times;</span>
+      <img src="Assets/Images/fail.gif" alt="Error" class="error-icon">
+      <p style="color: black;">Nama harus memiliki panjang minimal 5 karakter!</p>
+  </div>
+</div>
+
+
+
+
   <script src="/Js/scroll.js"></script>
+  <script src="/Js/contact.js"></script>
   <script type="module" src="/Js/barchart3.js"></script>
   <script type="module" src="/Js/chart2.js"></script>
   <script type="module" src="/Js/chart3.js"></script>
