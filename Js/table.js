@@ -59,6 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
         prevButton.disabled = page === 1;
         nextButton.disabled = end >= filteredData.length;
+
+        firstButton.style.display = page === 1 ? 'none' : 'inline-block';
+        lastButton.style.display = end >= filteredData.length ? 'none' : 'inline-block';
     
         const totalPages = Math.ceil(filteredData.length / itemsPerPage);
         const pageIndicator = document.getElementById('pageIndicator');
