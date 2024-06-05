@@ -58,6 +58,7 @@ fetch('/Assets/Data/linechart.json')
           }
         },
         plugins: {
+          responsive: true,
           legend: {
             labels: {
               color: 'black' // Set legend text color to black

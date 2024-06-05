@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Vending Machine Dashboard</title>
+  <link rel="icon" type="image" href="/Assets/Images/logo.png">
   <link rel="stylesheet" href="/Css/header.css">
   <link rel="stylesheet" href="/Css/style.css">
   <link rel="stylesheet" href="/Css/footer.css">
@@ -23,18 +24,20 @@
 <body>
   <header>
     <div class="logo-title">
-        <img src="/Assets/Images/vending_machine_logo.png" alt="Vending Machine Logo" id="logo">
+        <img src="/Assets/Images/logo.png" alt="Vending Machine Logo" id="logo">
         <h1><a href="index.html">Vending Machine</a></h1>
+        <span class="menu-toggle">&#9776;</span>
     </div>
     <nav>
         <ul>
-          <li><a class="dashboard-home" href="index.html">Home</a></li>
-          <li><a class="dashboard-settings" href="#ourteam">Our Team</a></li>
-          <li><a class="dashboard-visualisasi" href="#analytics">Analytics</a></li>
-          <li><a class="dashboard-contact" href="#contact">Contact Us</a></li>
+            <li><a class="dashboard-home" href="index.html">Home</a></li>
+            <li><a class="dashboard-settings" href="#ourteam">Our Team</a></li>
+            <li><a class="dashboard-visualisasi" href="#analytics">Analytics</a></li>
+            <li><a class="dashboard-contact" href="#contact">Contact Us</a></li>
         </ul>
     </nav>
 </header>
+
 
   <main>
 
@@ -357,7 +360,7 @@
       <button onclick="submitForm()">Iya</button>
       <button onclick="closeConfirmModal()">Tidak</button>
   </div>
-</div>
+    </div>
 
   <script src="/Js/scroll.js"></script>
   <script src="/Js/contact.js"></script>

@@ -10,7 +10,7 @@ header {
   top: 0;
   z-index: 1000;
   transition: background-color 0.3s ease-out;
-  padding: 10px 20px;
+  padding: 15px 10px;
 }
 
 .logo-title {
@@ -73,4 +73,109 @@ nav a {
 
 .navbar-scrolled a {
   color: #ffffff;
+}
+
+/* Media Queries */
+
+/* For tablets and small desktops */
+@media (max-width: 1200px) {
+  #logo {
+    height: 50px;
+    margin-right: 15px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  nav li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  nav a {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* For smartphones */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .logo-title {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  #logo {
+    height: 40px;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ffffff;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+  }
+
+  nav ul {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav li {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  nav a {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* For small smartphones */
+@media (max-width: 480px) {
+  header {
+    padding: 10px 5px;
+  }
+
+  header h1 {
+    font-size: 18px;
+  }
+
+  #logo {
+    height: 35px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+}
+
+/* Hide menu toggle on larger screens */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  nav {
+    display: flex !important;
+  }
 }

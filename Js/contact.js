@@ -52,13 +52,10 @@ function closeConfirmModal() {
 }
 
 function submitForm() {
-    // Close confirm modal
+
     document.getElementById('confirmModal').style.display = 'none';
-    
-    // Show success modal
     document.getElementById('successModal').style.display = 'block';
 
-    // Reload the page after 2 seconds
     setTimeout(() => {
         location.reload();
     }, 2000);

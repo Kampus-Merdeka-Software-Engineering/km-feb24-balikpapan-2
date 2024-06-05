@@ -48,6 +48,7 @@ const myChart = new Chart(ctx, {
         ]
     },
     options: {
+        responsive: true,
         plugins: {
             title: {
                 display: true,
