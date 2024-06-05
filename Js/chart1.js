@@ -48,17 +48,16 @@ function createChart() {
             ]
         },
         options: {
-            responsive: true,
             indexAxis: 'y',
             scales: {
                 x: {
                     ticks: {
-                        color: 'black',  // Warna tulisan hitam
+                        color: 'black' // Warna tulisan hitam
                     }
                 },
                 y: {
                     ticks: {
-                        color: 'black',  // Warna tulisan hitam
+                        color: 'black' // Warna tulisan hitam
                     }
                 }
             },
@@ -73,7 +72,7 @@ function createChart() {
                 },
                 legend: {
                     labels: {
-                        color: 'black',  // Warna tulisan hitam
+                        color: 'black' // Warna tulisan hitam
                     }
                 }
             }
@@ -90,3 +89,8 @@ window.addEventListener('resize', () => {
     ctx = document.getElementById('barchart3').getContext('2d');
     createChart(); // Buat chart baru dengan ukuran canvas yang diperbarui
 });
+
+// Menambahkan media queries untuk responsif pada layar mobile
+if (window.matchMedia("(max-width: 768px)").matches) {
+    barchart3.options.responsive = true;
+}

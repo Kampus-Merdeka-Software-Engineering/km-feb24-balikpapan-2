@@ -30,41 +30,60 @@ fetch('/Assets/Data/linechart.json')
       }
     });
 
-    const ctx = document.getElementById('lineChart').getContext('2d');
-    const lineChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: Object.keys(monthlyRevenue),
-        datasets: [{
-          label: 'Monthly Revenue',
-          data: Object.values(monthlyRevenue),
-          fill: false,
-          borderColor: 'rgba(255, 183, 3, 1)',
-          tension: 0.2
-        }]
-      },
-      options: {
-        scales: {
-          x: {
-            ticks: {
-              color: 'black' // Set x-axis text color to black
+    let ctx = document.getElementById('lineChart').getContext('2d');
+    let lineChart;
+
+    function createChart() {
+      lineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: Object.keys(monthlyRevenue),
+          datasets: [{
+            label: 'Monthly Revenue',
+            data: Object.values(monthlyRevenue),
+            fill: false,
+            borderColor: 'rgba(255, 183, 3, 1)',
+            tension: 0.2
+          }]
+        },
+        options: {
+          scales: {
+            x: {
+              ticks: {
+                color: 'black' // Set x-axis text color to black
+              }
+            },
+            y: {
+              beginAtZero: true,
+              ticks: {
+                color: 'black' // Set y-axis text color to black
+              }
             }
           },
-          y: {
-            beginAtZero: true,
-            ticks: {
-              color: 'black' // Set y-axis text color to black
-            }
-          }
-        },
-        plugins: {
-          responsive: true,
-          legend: {
-            labels: {
-              color: 'black' // Set legend text color to black
+          plugins: {
+            responsive: true,
+            legend: {
+              labels: {
+                color: 'black' // Set legend text color to black
+              }
             }
           }
         }
+      });
+    }
+
+    createChart(); // Pertama kali membuat chart
+
+    window.addEventListener('resize', () => {
+      if (lineChart) {
+        lineChart.destroy(); // Hancurkan chart sebelumnya
       }
+      ctx = document.getElementById('lineChart').getContext('2d');
+      createChart(); // Buat chart baru dengan ukuran canvas yang diperbarui
     });
+
+    // Menambahkan media queries untuk responsif pada layar mobile
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      lineChart.options.responsive = true;
+    }
   });
