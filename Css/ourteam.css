@@ -39,6 +39,8 @@
   max-width: 200px;
 }
 
+
+
 .col-4 {
   display: flex;
   flex-direction: column;
@@ -58,6 +60,30 @@
 .col-4:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor:pointer;
+}
+
+#info-box {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #000;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+#info-box p {
+  color:#000;
+}
+#close-btn {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: red;
 }
 
 .image {
