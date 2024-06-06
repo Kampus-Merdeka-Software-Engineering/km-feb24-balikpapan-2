@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Seymour+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Seymour+One&display=swap');
 
-html,
-body {
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -27,6 +25,7 @@ a:hover {
   background-image: url(/Assets/Images/vm2.jpg);
   background-size: cover;
   padding: 500px;
+  font-family: Arial, sans-serif;
   position: relative;
   overflow: hidden;
 }
@@ -38,11 +37,7 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0) 70%,
-    #8ecae6 100%
-  );
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, #8ecae6 100%);
   pointer-events: none;
 }
 
@@ -91,11 +86,11 @@ a:hover {
 .left-section {
   width: 15vw;
   flex-grow: 2;
-  display:block;
+  display: block;
   margin-left: 20px;
 }
 
-.intro-text-1{
+.intro-text-1 {
   font-family: "Lato", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -104,7 +99,7 @@ a:hover {
   letter-spacing: 2px;
 }
 
-.intro-text-2{
+.intro-text-2 {
   font-family: "Karla", sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
@@ -114,7 +109,7 @@ a:hover {
   font-size: 2.3em;
 }
 
-.intro-text-3{
+.intro-text-3 {
   font-family: "Lato", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -142,6 +137,7 @@ a:hover {
   filter: drop-shadow(16px 19px 0 rgba(12, 12, 12, 0.5));
 }
 
+
 /* Media Queries */
 
 @media (max-width: 1200px) {
@@ -157,24 +153,112 @@ a:hover {
 @media (max-width: 768px) {
   .vm-container {
     padding: 150px;
+    padding-top: calc(150px + 50px); /* Adjusting padding-top to include space for the navbar */
   }
 
   .vm-slogan {
     font-size: 24px;
+  }
+
+  .intro {
+    padding: 8%;
+  }
+
+  .left-section {
+    width: 25vw;
+  }
+
+  .intro-text-1 {
+    font-size: 1.5em;
+  }
+
+  .intro-text-2 {
+    font-size: 2em;
+  }
+
+  .intro-text-3 {
+    font-size: 17px;
+  }
+
+  .right-section img {
+    width: 45vh;
   }
 }
 
 @media (max-width: 480px) {
   .vm-container {
     padding: 100px;
+    padding-top: calc(150px + 50px); /* Adjusting padding-top to include space for the navbar */
   }
 
   .vm-slogan {
     font-size: 20px;
   }
+
+  .intro {
+    padding: 5%;
+  }
+
+  .container-intro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .left-section {
+    width: 80vw;
+    margin-left: 0;
+  }
+
+  .intro-text-1 {
+    font-size: 1.2em;
+  }
+
+  .intro-text-2 {
+    font-size: 1.5em;
+  }
+
+  .intro-text-3 {
+    font-size: 16px;
+  }
+
+  .right-section {
+    margin-top: 20px;
+  }
+
+  .right-section img {
+    width: 35vh;
+  }
 }
 
-.container {
-  width: 100%;
-  min-height: 200px;
+/* Additional Media Queries */
+
+@media (max-width: 320px) {
+  .vm-container {
+    padding: 80px;
+    padding-top: calc(100px + 50px); /* Adjusting padding-top to include space for the navbar */
+  }
+
+  .vm-slogan {
+    font-size: 18px;
+  }
+
+  .intro {
+    padding: 3%;
+  }
+
+  .intro-text-1 {
+    font-size: 1em;
+  }
+
+  .intro-text-2 {
+    font-size: 1.2em;
+  }
+
+  .intro-text-3 {
+    font-size: 14px;
+  }
+
+  .right-section img {
+    width: 30vh;
+  }
 }

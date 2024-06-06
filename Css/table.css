@@ -38,7 +38,7 @@
   font-size: 12px;
 }
 
-#dashboard-table {
+#Data-table {
   width: 100%;
   border-collapse: collapse;
   font-family: "Karla", sans-serif;
@@ -48,19 +48,19 @@
   font-size: 14px;
 }
 
-#dashboard-table,
-#dashboard-table th,
-#dashboard-table td {
+#Data-table,
+#Data-table th,
+#Data-table td {
   border: 1px solid rgb(0, 0, 0);
 }
 
-#dashboard-table th,
-#dashboard-table td {
+#Data-table th,
+#Data-table td {
   padding: 8px;
   text-align: center;
 }
 
-#dashboard-table tr {
+#Data-table tr {
   color: #000000;
 }
 
@@ -81,23 +81,23 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-#dashboard-table,
-#dashboard-table th,
-#dashboard-table td {
+#Data-table,
+#Data-table th,
+#Data-table td {
   border: 1px solid rgb(0, 0, 0);
 }
 
-#dashboard-table th,
-#dashboard-table td {
+#Data-table th,
+#Data-table td {
   padding: 8px;
   text-align: center;
 }
 
-#dashboard-table td {
+#Data-table td {
   font-size: 13px;
 }
 
-#dashboard-table tr {
+#Data-table tr {
   color: #000000;
   font-size: 14px;
 }
@@ -120,7 +120,7 @@
   flex-wrap: wrap; /* Baris baru jika tidak muat dalam satu baris */
 }
 
-#dashboard-table th {
+#Data-table th {
   background-color: rgba(187, 187, 187, 0.5);
 }
 
@@ -261,4 +261,13 @@ button{
 
 .filter-item input:not(:placeholder-shown) {
   background-color: #85b3ca;
+}
+
+/* Tabel Responsive */
+@media (max-width: 768px) {
+  #Data-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }
