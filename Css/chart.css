@@ -13,7 +13,7 @@
 }
 
 .dashboard1 {
-  padding: 10%;
+  padding: 5%;
   background: linear-gradient(to bottom, #219ebc 0%, #1c90d8 50%, #1c70c8 100%);
 }
 
@@ -24,17 +24,17 @@
 
 .dashboard2 {
   background: linear-gradient(to bottom, white 0%, #8fb8e0 50%, #219ebc 100%);
-  padding: 10%;
+  padding: 5%;
 }
 
 .dashboard3 {
   background: linear-gradient(to bottom, #219ebc 0%, #8fb8e0 50%, white 100%);
-  padding: 10%;
+  padding: 5%;
 }
 
 .dashboard4 {
-  background-color: #ffffff;
-  padding: 10%;
+  background: linear-gradient(to bottom, white 0%, #c5ddf5 50%, #8ecae6 100%);
+  padding: 5%;
 }
 
 .analytics-title {
