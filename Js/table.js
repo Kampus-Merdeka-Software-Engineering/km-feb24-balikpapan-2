@@ -1,4 +1,4 @@
-import data from '/Assets/Data/datalengkap.json' assert { type: 'json' };
+import data from '/Assets/Data/full_Data.json' assert { type: 'json' };
 
 document.addEventListener('DOMContentLoaded', () => {
     let currentPage = 1;
