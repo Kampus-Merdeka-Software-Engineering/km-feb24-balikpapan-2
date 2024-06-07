@@ -95,24 +95,18 @@
 
 .dashboard-column-bar1 {
   flex: 1;
-  min-width: 400px;
+  min-width: 800px;
   margin: 20px;
 }
 
 .dashboard-content-bar1 {
   flex: 1;
-  min-width: 300px;
+  min-width: 400px;
 }
 
 .dashboard-barlocation-bar1 {
   flex: 1;
-  min-width: 300px;
-}
-
-#barchart3 {
-  max-width: 600px; 
-  width: 400%;
-  margin: 0 auto;
+  min-width: 400px;
 }
 
 .dashboard-column {
@@ -120,23 +114,37 @@
   margin: 0 20px;
 }
 
-#lineChart {
-  max-width: 600px; 
-  width: 300%; 
-  margin: 0 auto;
+#linechartContainer {
+  position: relative;
+  width: 110%;
+  height: 300px; /* Adjust height as needed */
 }
 
-#chart3 {
-  max-width: 800px; 
-  width: 400%;
-  margin: 0 auto;
+#chart1Container {
+  position: relative;
+  width: 110%;
+  height: 400px; /* Adjust height as needed */
 }
 
-#myChart {
-  max-width: 400px;
-  width: 250%;
-  margin: 0 auto;
+#chart2Container {
+  position: relative;
+  width: 110%;
+  height: 400px; /* Adjust height as needed */
 }
+
+#chart3Container {
+  position: relative;
+  width: 100%;
+  height: 600px; /* Adjust height as needed */
+}
+
+canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: auto 800 / 400; /* This will enforce the aspect ratio */
+}
+
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 1024px) {
@@ -157,18 +165,38 @@
 
   .dashboard-column-bar1, .dashboard-content-bar1, .dashboard-barlocation-bar1 {
     min-width: 100%;
-    margin: 10px 0;
+    margin: 5px 0;
   }
 
-  #dashboard-row-bar1, #dashboard-row-bar2, #dashboard-row-bar3, #dashboard-row-bar4 {
-    display: block;
-  }
 
-  #barchart3, #lineChart, #chart3, #myChart {
-    max-width: 100%;
+  #linechartContainer {
+    position: relative;
     width: 100%;
-    margin: 20px 0;
+    height: 350px; /* Adjust height as needed */
   }
+  #chart1Container {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+  }
+  #chart2Container {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Adjust height as needed */
+  }
+  #chart3Container {
+    position: relative;
+    width: 100%;
+    height: 570px; /* Adjust height as needed */
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto 800 / 400; /* This will enforce the aspect ratio */
+  }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -186,5 +214,34 @@
 
   .dashboard1, .dashboard2, .dashboard3, .dashboard4 {
     padding: 5%;
+  }
+  #linechartContainer {
+    position: flex;
+    width: 120%;
+    height: 250px; /* Adjust height as needed */
+  }
+
+  #chart1Container {
+    position: relative;
+    width: 110%;
+    height: 240px; /* Adjust height as needed */
+  }
+
+  #chart2Container {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Adjust height as needed */
+  }
+  #chart3Container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Adjust height as needed */
+  }
+  
+  canvas {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: auto 800 / 400; /* This will enforce the aspect ratio */
   }
 }

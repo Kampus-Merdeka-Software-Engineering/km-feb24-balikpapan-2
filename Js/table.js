@@ -2,7 +2,7 @@ import data from '/Assets/Data/datalengkap.json' assert { type: 'json' };
 
 document.addEventListener('DOMContentLoaded', () => {
     let currentPage = 1;
-    const itemsPerPage = 8;
+    const itemsPerPage = 10;
     let transDateSortOrder = 'default';
     let revenueSortOrder = 'default';
     let totalSalesSortOrder = 'default';
@@ -14,41 +14,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalSalesHeader = document.getElementById('totalSalesHeader');
     const firstButton = document.getElementById('firstButton');
     const lastButton = document.getElementById('lastButton');
-    
+    const searchInput = document.getElementById('searchInput');
+    const filterButton = document.getElementById('filterButton');
+    const filterPopup = document.getElementById('filterPopup');
+    const closeFilterPopup = document.getElementById('closeFilterPopup');
+    const applyFilterButton = document.getElementById('applyFilterButton');
+    const categoryFilter = document.getElementById('categoryFilter');
     const locationFilter = document.getElementById('locationFilter');
     const machineFilter = document.getElementById('machineFilter');
-    const categoryFilter = document.getElementById('categoryFilter');
-    const productFilter = document.getElementById('productFilter');
 
-    const applyFilters = (data) => {
-        const location = locationFilter.value.toLowerCase();
-        const machine = machineFilter.value.toLowerCase();
-        const category = categoryFilter.value.toLowerCase();
-        const product = productFilter.value.toLowerCase();
+    let filteredData = [...data];
+    let displayedData = [...data];
 
-        return data.filter(item => 
-            item.Location.toLowerCase().includes(location) &&
-            item.Machine.toLowerCase().includes(machine) &&
-            item.Product.toLowerCase().includes(product) &&
-            (category === '' || item.Category.toLowerCase() === category)
-        );
-    };
-
-    const displayPage = (page) => {
+    const displayPage = (page, dataToDisplay) => {
         tableBody.innerHTML = '';
         const start = (page - 1) * itemsPerPage;
         const end = page * itemsPerPage;
-        
-        const filteredData = applyFilters(data);
-        const paginatedItems = filteredData.slice(start, end);
+        const paginatedItems = dataToDisplay.slice(start, end);
     
         paginatedItems.forEach(item => {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${item.Location}</td>
                 <td>${item.Machine}</td>
-                <td>${item.Category}</td>
                 <td>${item.Product}</td>
+                <td>${item.Category}</td>
                 <td>${item.TransDate}</td>
                 <td>${item.Type}</td>
                 <td>${item.Total_Sales}</td>
@@ -58,19 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     
         prevButton.disabled = page === 1;
-        nextButton.disabled = end >= filteredData.length;
-
-        firstButton.style.display = page === 1 ? 'none' : 'inline-block';
-        lastButton.style.display = end >= filteredData.length ? 'none' : 'inline-block';
+        nextButton.disabled = end >= dataToDisplay.length;
     
-        const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+        const totalPages = Math.ceil(dataToDisplay.length / itemsPerPage);
         const pageIndicator = document.getElementById('pageIndicator');
         pageIndicator.textContent = `Page ${page} of ${totalPages}`;
     };
 
-    const sortData = (order, field) => {
+    const sortData = (order, field, dataToSort) => {
         if (order === 'default') {
-            data.sort((a, b) => {
+            dataToSort.sort((a, b) => {
                 if (field === 'TransDate' || field === 'Total_Sales') {
                     return a[field].localeCompare(b[field]);
                 } else if (field === 'Revenue') {
@@ -78,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         } else {
-            data.sort((a, b) => {
+            dataToSort.sort((a, b) => {
                 if (field === 'TransDate') {
                     const dateA = new Date(a.TransDate);
                     const dateB = new Date(b.TransDate);
@@ -92,24 +79,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    const filterData = () => {
+        filteredData = data.filter(item => {
+            return (categoryFilter.value === '' || item.Category === categoryFilter.value) &&
+                   (locationFilter.value === '' || item.Location === locationFilter.value) &&
+                   (machineFilter.value === '' || item.Machine === machineFilter.value);
+        });
+        searchTable();
+    };
+
+    const searchTable = () => {
+        const query = searchInput.value.toLowerCase();
+        displayedData = filteredData.filter(item => {
+            return Object.values(item).some(value =>
+                value.toString().toLowerCase().includes(query)
+            );
+        });
+        displayPage(1, displayedData);
+    };
+
     transDateHeader.addEventListener('click', () => {
         transDateSortOrder = transDateSortOrder === 'default' ? 'asc' : transDateSortOrder === 'asc' ? 'desc' : 'default';
-        sortData(transDateSortOrder, 'TransDate');
-        displayPage(currentPage);
+        sortData(transDateSortOrder, 'TransDate', displayedData);
+        displayPage(currentPage, displayedData);
         updateHeaderStyle(transDateHeader, transDateSortOrder);
     });
 
     revenueHeader.addEventListener('click', () => {
         revenueSortOrder = revenueSortOrder === 'default' ? 'asc' : revenueSortOrder === 'asc' ? 'desc' : 'default';
-        sortData(revenueSortOrder, 'Revenue');
-        displayPage(currentPage);
+        sortData(revenueSortOrder, 'Revenue', displayedData);
+        displayPage(currentPage, displayedData);
         updateHeaderStyle(revenueHeader, revenueSortOrder);
     });
 
     totalSalesHeader.addEventListener('click', () => {
         totalSalesSortOrder = totalSalesSortOrder === 'default' ? 'asc' : totalSalesSortOrder === 'asc' ? 'desc' : 'default';
-        sortData(totalSalesSortOrder, 'Total_Sales');
-        displayPage(currentPage);
+        sortData(totalSalesSortOrder, 'Total_Sales', displayedData);
+        displayPage(currentPage, displayedData);
         updateHeaderStyle(totalSalesHeader, totalSalesSortOrder);
     });
 
@@ -121,35 +127,79 @@ document.addEventListener('DOMContentLoaded', () => {
     prevButton.addEventListener('click', () => {
         if (currentPage > 1) {
             currentPage--;
-            displayPage(currentPage);
+            displayPage(currentPage, displayedData);
         }
     });
 
     nextButton.addEventListener('click', () => {
-        if (currentPage * itemsPerPage < applyFilters(data).length) {
+        if (currentPage * itemsPerPage < displayedData.length) {
             currentPage++;
-            displayPage(currentPage);
+            displayPage(currentPage, displayedData);
         }
     });
 
     firstButton.addEventListener('click', () => {
         currentPage = 1;
-        displayPage(currentPage);
+        displayPage(currentPage, displayedData);
     });
     
     lastButton.addEventListener('click', () => {
-        currentPage = Math.ceil(applyFilters(data).length / itemsPerPage);
-        displayPage(currentPage);
+        currentPage = Math.ceil(displayedData.length / itemsPerPage);
+        displayPage(currentPage, displayedData);
     });
 
-    locationFilter.addEventListener('input', () => displayPage(currentPage));
-    machineFilter.addEventListener('input', () => displayPage(currentPage));
-    categoryFilter.addEventListener('input', () => displayPage(currentPage));
-    productFilter.addEventListener('input', () => displayPage(currentPage));
+    searchInput.addEventListener('input', searchTable);
+
+    filterButton.addEventListener('click', () => {
+        filterPopup.style.display = 'block';
+    });
+
+    closeFilterPopup.addEventListener('click', () => {
+        filterPopup.style.display = 'none';
+    });
+
+    applyFilterButton.addEventListener('click', () => {
+        filterData();
+        filterPopup.style.display = 'none';
+    });
+
+    // Populate filter dropdowns
+    const populateFilterOptions = () => {
+        const categories = [...new Set(data.map(item => item.Category))];
+        const locations = [...new Set(data.map(item => item.Location))];
+        const machines = [...new Set(data.map(item => item.Machine))];
+        
+        categoryFilter.innerHTML = '<option value="">All</option>';
+        locationFilter.innerHTML = '<option value="">All</option>';
+        machineFilter.innerHTML = '<option value="">All</option>';
+        
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category;
+            categoryFilter.appendChild(option);
+        });
+        
+        locations.forEach(location => {
+            const option = document.createElement('option');
+            option.value = location;
+            option.textContent = location;
+            locationFilter.appendChild(option);
+        });
+        
+        machines.forEach(machine => {
+            const option = document.createElement('option');
+            option.value = machine;
+            option.textContent = machine;
+            machineFilter.appendChild(option);
+        });
+    };
+
+    populateFilterOptions();
 
     transDateHeader.classList.add('sort-default');
     revenueHeader.classList.add('sort-default');
     totalSalesHeader.classList.add('sort-default');
-    sortData(transDateSortOrder, 'TransDate');
-    displayPage(currentPage);
+    sortData(transDateSortOrder, 'TransDate', filteredData);
+    displayPage(currentPage, filteredData);
 });

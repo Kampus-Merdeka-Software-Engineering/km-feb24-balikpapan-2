@@ -218,52 +218,152 @@ button{
   content: "⭣";
 }
 
-/* Filter Section Styles */
-.filter-section {
-  margin-bottom: 20px;
+.filter-search-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.filter-item {
+#searchInput {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 10px; /* Add margin to the left of the search input */
+}
+
+#filterButton {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #023047;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+#dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#dashboard-table, #dashboard-table th, #dashboard-table td {
+  border: 1px solid rgb(0, 0, 0);
+}
+
+#dashboard-table th, #dashboard-table td {
+  padding: 8px;
+  text-align: center;
+}
+
+#dashboard-table td {
+  font-size: 13px;
+}
+
+#dashboard-table tr {
+  color: #000000;
+  font-size: 14px;
+}
+
+#dashboard-table th {
+  background-color: rgba(187, 187, 187, 0.5);
+}
+
+.dashboard-pagination {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.dashboard-pagination button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Baris baru jika tidak muat dalam satu baris */
+}
+
+#pageIndicator {
+  text-align: center;
+}
+
+#prevButton, #nextButton, #firstButton, #lastButton {
+  background-color: #023047;
+  color: rgb(255, 255, 255);
+  display: inline-block; /* Tambahkan properti display */
+}
+
+/* Menyembunyikan tombol prevButton saat berada di halaman pertama */
+#prevButton[disabled] {
+  display: none;
+}
+
+/* Menyembunyikan tombol nextButton saat berada di halaman terakhir */
+#nextButton[disabled] {
+  display: none;
+}
+
+.sort-icon {
+  margin-left: 8px;
+}
+
+.sort-default .sort-icon::before {
+  content: '⭥';
+}
+
+.sort-asc .sort-icon::before {
+  content: '⭡';
+}
+
+.sort-desc .sort-icon::before {
+  content: '⭣';
+}
+
+.filter-popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+.filter-content {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
-.filter-item label {
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+label {
   font-weight: bold;
-  margin-bottom: 5px;
+}
+
+select {
+  padding: 10px;
   font-size: 14px;
-  color: #000000;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.filter-item input {
-  padding: 8px;
-  background-color: #85b3ca;
-  border: 3px solid #3057ac;
-  border-radius: 8px;
-  width: 200px;
-  transition: all 0.3s ease;
-  color: #141414;
-  font-size: 14px;
-}
 
-.filter-item input::placeholder {
-  color: #141414;
-}
 
-.filter-item input:focus {
-  outline: none;
-}
-
-.filter-item input:not(:placeholder-shown) {
-  background-color: #85b3ca;
-}
-
-/* Tabel Responsive */
 @media (max-width: 768px) {
   #Data-table {
     display: block;

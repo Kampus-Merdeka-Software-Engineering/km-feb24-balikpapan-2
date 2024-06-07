@@ -70,7 +70,7 @@
         </div>
       </section>
 
-      <section class="dashboard1" style="padding: 10%" id="analytics">
+      <section class="dashboard1" style="padding: 15%" id="analytics">
         <h1 class="heading-analytics">Analytics</h1>
         <br />
         <h2 class="analytics-title">Sales and Revenue Trends in 2022</h2>
@@ -88,84 +88,74 @@
             </p>
           </div>
           <div class="dashboard-column dashboard-barlocation">
-            <canvas id="lineChart"></canvas>
-          </div>
+            <div id="linechartContainer">
+              <canvas id="lineChart"></canvas>
+            </div>
         </div>
       </section>
 
       <section class="dashboard-table">
         <h1>Data Table</h1>
         <br />
+        <div class="filter-search-container">
+          <button id="filterButton">Filter</button>
+          <input type="text" id="searchInput" placeholder="Search...">
+      </div>
         <div id="dashboard-row">
-          <div class="dashboard-column">
-            <div class="filter-section">
-              <div class="filter-item">
-                <label for="locationFilter"> Search by Location:</label>
-                <input
-                  type="text"
-                  id="locationFilter"
-                  placeholder="All Location"
-                />
-              </div>
-              <div class="filter-item">
-                <label for="machineFilter">Search by Machine:</label>
-                <input
-                  type="text"
-                  id="machineFilter"
-                  placeholder="All Machine"
-                />
-              </div>
-              <div class="filter-item">
-                <label for="categoryFilter">Search by Category:</label>
-                <input
-                  type="text"
-                  id="categoryFilter"
-                  placeholder="All Category"
-                />
-              </div>
-              <div class="filter-item">
-                <label for="productFilter">Search by Product:</label>
-                <input
-                  type="text"
-                  id="productFilter"
-                  placeholder="All Product"
-                />
-              </div>
+            <div class="dashboard-column">
+                <table id="Data-table">
+                    <thead>
+                        <tr>
+                            <th>Location</th>
+                            <th>Machine</th>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th id="transDateHeader">
+                                Transaction Date
+                                <span class="sort-icon"></span>
+                            </th>
+                            <th>Type</th>
+                            <th id="totalSalesHeader">Total Sales
+                                <span class="sort-icon"></span>
+                            </th>
+                            <th id="revenueHeader">
+                                Revenue
+                                <span class="sort-icon"></span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div id="pageIndicator">Page 1 of 1</div>
+                <div class="dashboard-pagination">
+                    <button id="firstButton">First</button>
+                    <button id="prevButton">Previous</button>
+                    <button id="nextButton">Next</button>
+                    <button id="lastButton">Last</button>
+                </div>
             </div>
-            <table id="Data-table">
-              <thead>
-                <tr>
-                  <th>Location</th>
-                  <th>Machine</th>
-                  <th>Category</th>
-                  <th>Product</th>
-                  <th id="transDateHeader">
-                    Transaction Date
-                    <span class="sort-icon"></span>
-                  </th>
-                  <th>Type</th>
-                  <th id="totalSalesHeader">
-                    Total Sales
-                    <span class="sort-icon"></span>
-                  </th>
-                  <th id="revenueHeader">
-                    Revenue
-                    <span class="sort-icon"></span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-            <div id="pageIndicator">Page 1 of 1</div>
-            <div class="dashboard-pagination">
-              <button id="firstButton">First</button>
-              <button id="prevButton">Previous</button>
-              <button id="nextButton">Next</button>
-              <button id="lastButton">Last</button>
-            </div>
-          </div>
         </div>
-      </section>
+        <div id="filterPopup" class="filter-popup">
+          <span id="closeFilterPopup" class="close">&times;</span>
+          <div class="filter-content">
+              <label for="categoryFilter">Category:</label>
+              <select id="categoryFilter">
+                  <!-- Options will be populated here -->
+              </select>
+              <label for="locationFilter">Location:</label>
+              <select id="locationFilter">
+                  <!-- Options will be populated here -->
+              </select>
+              <label for="machineFilter">Machine:</label>
+              <select id="machineFilter">
+                  <!-- Options will be populated here -->
+              </select>
+              <button id="applyFilterButton">Apply Filters</button>
+          </div>
+      </div>
+    </section>
+    
 
       <section class="dashboard2">
         <h2 class="analytics-title">Highest Location profitability</h2>
@@ -193,7 +183,9 @@
             </p>
           </div>
           <div class="dashboard-column dashboard-barlocation">
-            <canvas id="barchart3"></canvas>
+            <div id="chart1Container">
+              <canvas id="barchart3"></canvas>
+            </div>
           </div>
         </div>
       </section>
@@ -223,7 +215,9 @@
             </p>
           </div>
           <div class="dashboard-column dashboard-barlocation">
-            <canvas id="chart2"></canvas>
+            <div id="chart2Container">
+              <canvas id="chart2"></canvas>
+            </div>
           </div>
         </div>
       </section>
@@ -257,7 +251,9 @@
             </p>
           </div>
           <div class="dashboard-column dashboard-barlocation">
-            <canvas id="myChart"></canvas>
+            <div id="chart3Container">
+              <canvas id="myChart"></canvas>
+            </div>
           </div>
         </div>
       </section>
