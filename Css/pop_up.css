@@ -1,3 +1,4 @@
+/* Default styles for modal */
 .modal {
   display: none; 
   position: fixed; 
@@ -7,8 +8,7 @@
   width: 100%;
   height: 100%;
   overflow: auto; 
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4); 
+  background-color: rgba(0,0,0,0.4); /* Use rgba for transparency */
   padding-top: 60px;
 }
 
@@ -51,18 +51,23 @@ button:hover {
   background-color: #8ecae6;
 }
 
-  
-.success-icon {
-  width: 200px;
-  height: 200px;
-  margin-bottom: 10px;
-}
-
+.success-icon,
 .error-icon {
   width: 200px;
   height: 200px;
   margin-bottom: 10px;
 }
 
-  
-  
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .modal-content {
+    width: 60%; /* Adjust width for smaller screens */
+  }
+}
+
+/* Media query for even smaller screens */
+@media screen and (max-width: 480px) {
+  .modal-content {
+    width: 80%; /* Adjust width for even smaller screens */
+  }
+}

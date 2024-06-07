@@ -223,7 +223,7 @@ canvas {
 
   #chart1Container {
     position: relative;
-    width: 110%;
+    width: 90%;
     height: 240px; /* Adjust height as needed */
   }
 
