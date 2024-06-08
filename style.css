@@ -156,7 +156,7 @@ nav a {
 }
 
 .intro {
-  padding: 10%;
+  padding: 5%;
   background-color: #8ecae6;
   background: linear-gradient(to bottom, #8ecae6 0%, #5da3c1 50%, #219ebc 100%);
 }
@@ -732,7 +732,7 @@ select {
 
 /* OUR TEAM */
 .services-ourteam {
-  padding: 10%;
+  padding: 5%;
   background-color: #8ecae6;
   background: linear-gradient(to bottom, #8ecae6 0%, #78adc7 50%, #023047 100%);
 }
