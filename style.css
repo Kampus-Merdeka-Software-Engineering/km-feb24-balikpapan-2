@@ -63,9 +63,16 @@ nav {
   margin-left: 20px;
 }
 
+nav a {
+  text-decoration: none;
+  color: black;
+  transition: all 0.3s ease; 
+}
+
 nav a:hover {
   color: #219EBC;
-  background-color: rgba(255, 255, 255, 0.1);
+  text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3), 
+               0px 1px 10px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
@@ -781,7 +788,7 @@ select {
 .col-4:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  cursor:pointer;
+  cursor: pointer;
 }
 
 #info-box {
@@ -793,26 +800,33 @@ select {
   border: 1px solid #000;
   background-color: #023047;
   width: 35%;
-  height:35%;
-  padding: 10PX;
+  height: 35%;
+  padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   z-index: 1000;
   border-radius: 10px;
 }
+
 #info-box p {
-  color:#fff;
+  color: #fff;
 }
+
 #close-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   color: #000;
-  border:#78adc7;
+  border: 1px solid #78adc7;
   padding: 10px 20px;
   background-color: #78adc7;
   border-radius: 5px;
-  width:100%;
+  width: auto;
+  max-width: 100px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #close-btn:hover {
