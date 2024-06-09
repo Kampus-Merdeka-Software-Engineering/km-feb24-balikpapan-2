@@ -414,10 +414,6 @@ if (window.matchMedia("(max-width: 768px)").matches) {
     myChart.options.responsive = true;
 }
 
-
-//code about making Table
-
-
 // code about making OurTeam
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -437,12 +433,12 @@ document.addEventListener('DOMContentLoaded', function() {
         5: ['Hikma Abdia', 'Universitas Hasanudin', 'Pitch Deck' , '@_abdiaaa'],
         6: ['Irgy Dwi V', 'Universitas Tanjungpura', 'Deployment', '@irgy_dr'],
         7: ['Made Shanta Raima W', 'Universitas Udayana', 'Form Validation', '@shanta.raima14'],
-        8: ['Mufidatul Izza', '', '', ''],
-        9: ['Kevin Kurnia', '', '', ''],
+        8: ['Mufidatul Izza', 'Universitas Yudharta Pasuruan', 'Quality Assurance', '@izzamufidah_'],
+        9: ['Kevin Kurnia', 'STKIP Pasundan Cimahi', 'Front End', '@kv_ad1'],
         10: ['Nova Enjelina P', 'Universitas Pembangunan Nasional Veteran Jakarta', 'Front End', '@novanjln'],
-        11: ['Amelia Putri Rosalina', '', '', ''],
+        11: ['Amelia Putri Rosalina', 'Universitas Muria Kudus', 'Front End', '@amllaptrr'],
         12: ['Eolia Gita Afriyani', 'Universitas Jember', 'Pitch Deck', '@eo_gita'],
-        13: ['Ainur Rokhimah', '', '', '']
+        13: ['Ainur Rokhimah', 'Universitas Islam Darul Ulum Lamongan', 'Quality Assurance', '@ainur_r197']
     };
 
     teamMembers.forEach(member => {
@@ -520,3 +516,222 @@ function submitForm() {
         location.reload();
     }, 2000);
 }
+
+
+// code about making function Table
+
+document.addEventListener('DOMContentLoaded', async () => {
+    let currentPage = 1;
+    const itemsPerPage = 10;
+    let transDateSortOrder = 'default';
+    let revenueSortOrder = 'default';
+    let totalSalesSortOrder = 'default';
+    const tableBody = document.querySelector('#Data-table tbody');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+    const transDateHeader = document.getElementById('transDateHeader');
+    const revenueHeader = document.getElementById('revenueHeader');
+    const totalSalesHeader = document.getElementById('totalSalesHeader');
+    const firstButton = document.getElementById('firstButton');
+    const lastButton = document.getElementById('lastButton');
+    const searchInput = document.getElementById('searchInput');
+    const filterButton = document.getElementById('filterButton');
+    const filterPopup = document.getElementById('filterPopup');
+    const closeFilterPopup = document.getElementById('closeFilterPopup');
+    const applyFilterButton = document.getElementById('applyFilterButton');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const locationFilter = document.getElementById('locationFilter');
+    const machineFilter = document.getElementById('machineFilter');
+
+    let dataTable = [];
+    let filteredData = [];
+    let displayedData = [];
+
+    try {
+        const response5 = await fetch('/Assets/Data/full_Data.json');
+        dataTable = await response5.json();
+        filteredData = [...dataTable];
+        displayedData = [...dataTable];
+    } catch (error) {
+        console.error('Error loading data:', error);
+    }
+
+    const displayPage = (page, dataToDisplay) => {
+        tableBody.innerHTML = '';
+        const start = (page - 1) * itemsPerPage;
+        const end = page * itemsPerPage;
+        const paginatedItems = dataToDisplay.slice(start, end);
+
+        paginatedItems.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.Location}</td>
+                <td>${item.Machine}</td>
+                <td>${item.Product}</td>
+                <td>${item.Category}</td>
+                <td>${item.TransDate}</td>
+                <td>${item.Type}</td>
+                <td>${item.Total_Sales}</td>
+                <td>${item.Revenue}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+
+        prevButton.disabled = page === 1;
+        nextButton.disabled = end >= dataToDisplay.length;
+
+        const totalPages = Math.ceil(dataToDisplay.length / itemsPerPage);
+        const pageIndicator = document.getElementById('pageIndicator');
+        pageIndicator.textContent = `Page ${page} of ${totalPages}`;
+    };
+
+    const sortData = (order, field, dataToSort) => {
+        if (order === 'default') {
+            dataToSort.sort((a, b) => {
+                if (field === 'TransDate' || field === 'Total_Sales') {
+                    return a[field].localeCompare(b[field]);
+                } else if (field === 'Revenue') {
+                    return parseFloat(a.Revenue) - parseFloat(b.Revenue);
+                }
+            });
+        } else {
+            dataToSort.sort((a, b) => {
+                if (field === 'TransDate') {
+                    const dateA = new Date(a.TransDate);
+                    const dateB = new Date(b.TransDate);
+                    return order === 'asc' ? dateA - dateB : dateB - dateA;
+                } else if (field === 'Revenue') {
+                    return order === 'asc' ? parseFloat(a.Revenue) - parseFloat(b.Revenue) : parseFloat(b.Revenue) - parseFloat(a.Revenue);
+                } else if (field === 'Total_Sales') {
+                    return order === 'asc' ? parseFloat(a.Total_Sales) - parseFloat(b.Total_Sales) : parseFloat(b.Total_Sales) - parseFloat(a.Total_Sales);
+                }
+            });
+        }
+    };
+
+    const filterData = () => {
+        filteredData = dataTable.filter(item => {
+            return (categoryFilter.value === '' || item.Category === categoryFilter.value) &&
+                   (locationFilter.value === '' || item.Location === locationFilter.value) &&
+                   (machineFilter.value === '' || item.Machine === machineFilter.value);
+        });
+        searchTable();
+    };
+
+    const searchTable = () => {
+        const query = searchInput.value.toLowerCase();
+        displayedData = filteredData.filter(item => {
+            return Object.values(item).some(value =>
+                value.toString().toLowerCase().includes(query)
+            );
+        });
+        displayPage(1, displayedData);
+    };
+
+    transDateHeader.addEventListener('click', () => {
+        transDateSortOrder = transDateSortOrder === 'default' ? 'asc' : transDateSortOrder === 'asc' ? 'desc' : 'default';
+        sortData(transDateSortOrder, 'TransDate', displayedData);
+        displayPage(currentPage, displayedData);
+        updateHeaderStyle(transDateHeader, transDateSortOrder);
+    });
+
+    revenueHeader.addEventListener('click', () => {
+        revenueSortOrder = revenueSortOrder === 'default' ? 'asc' : revenueSortOrder === 'asc' ? 'desc' : 'default';
+        sortData(revenueSortOrder, 'Revenue', displayedData);
+        displayPage(currentPage, displayedData);
+        updateHeaderStyle(revenueHeader, revenueSortOrder);
+    });
+
+    totalSalesHeader.addEventListener('click', () => {
+        totalSalesSortOrder = totalSalesSortOrder === 'default' ? 'asc' : totalSalesSortOrder === 'asc' ? 'desc' : 'default';
+        sortData(totalSalesSortOrder, 'Total_Sales', displayedData);
+        displayPage(currentPage, displayedData);
+        updateHeaderStyle(totalSalesHeader, totalSalesSortOrder);
+    });
+
+    const updateHeaderStyle = (header, order) => {
+        header.classList.remove('sort-default', 'sort-asc', 'sort-desc');
+        header.classList.add(order === 'default' ? 'sort-default' : order === 'asc' ? 'sort-asc' : 'sort-desc');
+    };
+
+    prevButton.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayPage(currentPage, displayedData);
+        }
+    });
+
+    nextButton.addEventListener('click', () => {
+        if (currentPage * itemsPerPage < displayedData.length) {
+            currentPage++;
+            displayPage(currentPage, displayedData);
+        }
+    });
+
+    firstButton.addEventListener('click', () => {
+        currentPage = 1;
+        displayPage(currentPage, displayedData);
+    });
+    
+    lastButton.addEventListener('click', () => {
+        currentPage = Math.ceil(displayedData.length / itemsPerPage);
+        displayPage(currentPage, displayedData);
+    });
+
+    searchInput.addEventListener('input', searchTable);
+
+    filterButton.addEventListener('click', () => {
+        filterPopup.style.display = 'block';
+    });
+
+    closeFilterPopup.addEventListener('click', () => {
+        filterPopup.style.display = 'none';
+    });
+
+    applyFilterButton.addEventListener('click', () => {
+        filterData();
+        filterPopup.style.display = 'none';
+    });
+
+    // Populate filter dropdowns
+    const populateFilterOptions = () => {
+        const categories = [...new Set(dataTable.map(item => item.Category))];
+        const locations = [...new Set(dataTable.map(item => item.Location))];
+        const machines = [...new Set(dataTable.map(item => item.Machine))];
+        
+        categoryFilter.innerHTML = '<option value="">All</option>';
+        locationFilter.innerHTML = '<option value="">All</option>';
+        machineFilter.innerHTML = '<option value="">All</option>';
+        
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category;
+            categoryFilter.appendChild(option);
+        });
+        
+        locations.forEach(location => {
+            const option = document.createElement('option');
+            option.value = location;
+            option.textContent = location;
+            locationFilter.appendChild(option);
+        });
+        
+        machines.forEach(machine => {
+            const option = document.createElement('option');
+            option.value = machine;
+            option.textContent = machine;
+            machineFilter.appendChild(option);
+        });
+    };
+
+    if (dataTable.length) {
+        populateFilterOptions();
+
+        transDateHeader.classList.add('sort-default');
+        revenueHeader.classList.add('sort-default');
+        totalSalesHeader.classList.add('sort-default');
+        sortData(transDateSortOrder, 'TransDate', filteredData);
+        displayPage(currentPage, filteredData);
+    }
+});
