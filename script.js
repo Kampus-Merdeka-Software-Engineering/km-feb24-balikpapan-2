@@ -556,7 +556,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const start = (page - 1) * itemsPerPage;
         const end = page * itemsPerPage;
         const paginatedItems = dataToDisplay.slice(start, end);
-    
+
         paginatedItems.forEach(item => {
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -571,14 +571,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             `;
             tableBody.appendChild(row);
         });
-    
+
         prevButton.disabled = page === 1;
         nextButton.disabled = end >= dataToDisplay.length;
-    
+
         const totalPages = Math.ceil(dataToDisplay.length / itemsPerPage);
         const pageIndicator = document.getElementById('pageIndicator');
-        pageIndicator.textContent = `Page ${page} of ${totalPages}`;
-    
+        pageIndicator.textContent = totalPages === 0 ? 'Page 0 of 0' : `Page ${page} of ${totalPages}`;
+
         // Add responsive class to table if screen width <= 425
         if (window.innerWidth <= 425) {
             tableBody.classList.add('responsive-table');
@@ -587,7 +587,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
-        const sortData = (order, field, dataToSort) => {
+    const sortData = (order, field, dataToSort) => {
         if (order === 'default') {
             dataToSort.sort((a, b) => {
                 if (field === 'TransDate' || field === 'Total_Sales') {
@@ -674,7 +674,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         currentPage = 1;
         displayPage(currentPage, displayedData);
     });
-    
+
     lastButton.addEventListener('click', () => {
         currentPage = Math.ceil(displayedData.length / itemsPerPage);
         displayPage(currentPage, displayedData);
@@ -700,25 +700,25 @@ document.addEventListener('DOMContentLoaded', async () => {
         const categories = [...new Set(dataTable.map(item => item.Category))];
         const locations = [...new Set(dataTable.map(item => item.Location))];
         const machines = [...new Set(dataTable.map(item => item.Machine))];
-        
+
         categoryFilter.innerHTML = '<option value="">All</option>';
         locationFilter.innerHTML = '<option value="">All</option>';
         machineFilter.innerHTML = '<option value="">All</option>';
-        
+
         categories.forEach(category => {
             const option = document.createElement('option');
             option.value = category;
             option.textContent = category;
             categoryFilter.appendChild(option);
         });
-        
+
         locations.forEach(location => {
             const option = document.createElement('option');
             option.value = location;
             option.textContent = location;
             locationFilter.appendChild(option);
         });
-        
+
         machines.forEach(machine => {
             const option = document.createElement('option');
             option.value = machine;
@@ -737,10 +737,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         displayPage(currentPage, filteredData);
     }
 
-   // Add event listener for window resize
-// Add event listener for window resize to handle responsive table
-window.addEventListener('resize', () => {
-    displayPage(currentPage, displayedData);
-});
-
+    // Add event listener for window resize
+    window.addEventListener('resize', () => {
+        displayPage(currentPage, displayedData);
+    });
 });
