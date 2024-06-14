@@ -248,12 +248,42 @@ function calculateTotals(data3) {
     return totals;
 }
 
-function createChart(categories, totalSales, revenue) {
+let chart2;
+let Categories, totalSales, revenue;
+
+async function fetchdata3() {
+    const response3 = await fetch('/Assets/Data/category_Data.json');
+    const data3 = await response3.json();
+    return data3;
+}
+
+function calculateTotals(data3) {
+    let totals = {};
+    data3.forEach(item => {
+        if (totals[item.Category]) {
+            totals[item.Category].Total_Sales += parseFloat(item.Total_Sales);
+            totals[item.Category].Revenue += parseFloat(item.Revenue);
+        } else {
+            totals[item.Category] = {
+                Total_Sales: parseFloat(item.Total_Sales),
+                Revenue: parseFloat(item.Revenue)
+            };
+        }
+    });
+    return totals;
+}
+
+function createChart2(Categories, totalSales, revenue) {
     let ctx = document.getElementById('chart2').getContext('2d');
-    let myChart = new Chart(ctx, {
+
+    if (chart2) {
+        chart2.destroy(); // Destroy the previous chart if it exists
+    }
+
+    chart2 = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: categories,
+            labels: Categories,
             datasets: [
                 {
                     label: 'Total Sales',
@@ -304,27 +334,27 @@ function createChart(categories, totalSales, revenue) {
             }
         }
     });
-
-    // Handle resizing
-    window.addEventListener('resize', () => {
-        if (myChart) {
-            myChart.destroy(); // Destroy previous chart
-        }
-        ctx = document.getElementById('chart2').getContext('2d');
-        createChart(categories, totalSales, revenue); // Create new chart with updated canvas size
-    });
 }
+
+// Handle resizing
+window.addEventListener('resize', () => {
+    createChart2(Categories, totalSales, revenue); // Recreate the chart with the updated canvas size
+});
 
 fetchdata3().then(data3 => {
     const categoryTotals = calculateTotals(data3);
-    const categories = Object.keys(categoryTotals);
-    const totalSales = categories.map(category => categoryTotals[category].Total_Sales);
-    const revenue = categories.map(category => categoryTotals[category].Revenue);
+    Categories = Object.keys(categoryTotals);
+    totalSales = Categories.map(category => categoryTotals[category].Total_Sales);
+    revenue = Categories.map(category => categoryTotals[category].Revenue);
 
-    createChart(categories, totalSales, revenue);
+    createChart2(Categories, totalSales, revenue);
 });
 
+
 //code about making Pie Chart
+
+let myChart;
+let label, data4Values;
 
 async function fetchdata4() {
     const response4 = await fetch('/Assets/Data/machine_Data.json');
@@ -344,10 +374,15 @@ function calculateTotalSales(data4) {
 
 function createChartPie(labels, data4Values) {
     let ctx = document.getElementById('myChart').getContext('2d');
-    let myChart = new Chart(ctx, {
+
+    if (myChart) {
+        myChart.destroy(); // Destroy the previous chart if it exists
+    }
+
+    myChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: labels,
+            labels: labels, // Corrected from label to labels
             datasets: [{
                 data: data4Values,
                 backgroundColor: [
@@ -383,31 +418,29 @@ function createChartPie(labels, data4Values) {
                 },
                 legend: {
                     position: 'right',
-                    labels: {
+                    labels: { // Corrected from label to labels
                         color: 'black'
                     }
                 }
             }
         }
     });
-
-    // Handle resizing
-    window.addEventListener('resize', () => {
-        if (myChart) {
-            myChart.destroy(); // Destroy previous chart
-        }
-        ctx = document.getElementById('myChart').getContext('2d');
-        createChartPie(labels, data4Values); // Create new chart with updated canvas size
-    });
 }
+
+// Handle resizing
+window.addEventListener('resize', () => {
+    createChartPie(label, data4Values); // Recreate the chart with the updated canvas size
+});
 
 fetchdata4().then(data4 => {
     const totalSalesdata4 = calculateTotalSales(data4);
-    const labels = Object.keys(totalSalesdata4);
-    const data4Values = Object.values(totalSalesdata4);
+    label = Object.keys(totalSalesdata4);
+    data4Values = Object.values(totalSalesdata4);
 
-    createChartPie(labels, data4Values);
+    createChartPie(label, data4Values);
 });
+
+
 
 // code about making OurTeam
 
@@ -515,6 +548,7 @@ function submitForm() {
 
 // code about making function Table
 
+//Pendefinisian Variabel dan Elemen DOM
 document.addEventListener('DOMContentLoaded', async () => {
     let currentPage = 1;
     const itemsPerPage = 10;
@@ -538,6 +572,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const locationFilter = document.getElementById('locationFilter');
     const machineFilter = document.getElementById('machineFilter');
 
+    //Memuat dan Mengelola Data
     let dataTable = [];
     let filteredData = [];
     let displayedData = [];
@@ -550,6 +585,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Error loading data:', error);
     }
+
+    //Menampilkan Halaman Tertentu dari Data
 
     const displayPage = (page, dataToDisplay) => {
         tableBody.innerHTML = '';
@@ -587,6 +624,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
+    //Sortir Data
     const sortData = (order, field, dataToSort) => {
         if (order === 'default') {
             dataToSort.sort((a, b) => {
@@ -611,6 +649,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
+    //Filter Data
+
     const filterData = () => {
         filteredData = dataTable.filter(item => {
             return (categoryFilter.value === '' || item.Category === categoryFilter.value) &&
@@ -619,6 +659,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
         searchTable();
     };
+
+    //Pencarian Data
 
     const searchTable = () => {
         const query = searchInput.value.toLowerCase();
@@ -629,6 +671,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
         displayPage(1, displayedData);
     };
+
+    //Event Listener untuk Sortir, Navigasi, dan Filter
 
     transDateHeader.addEventListener('click', () => {
         transDateSortOrder = transDateSortOrder === 'default' ? 'asc' : transDateSortOrder === 'asc' ? 'desc' : 'default';
@@ -695,7 +739,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         filterPopup.style.display = 'none';
     });
 
-    // Populate filter dropdowns
+    // Mengisi Opsi Filter dan Menampilkan Data Awal
+
     const populateFilterOptions = () => {
         const categories = [...new Set(dataTable.map(item => item.Category))];
         const locations = [...new Set(dataTable.map(item => item.Location))];
@@ -737,7 +782,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         displayPage(currentPage, filteredData);
     }
 
-    // Add event listener for window resize
+    // Mengelola Responsivitas
     window.addEventListener('resize', () => {
         displayPage(currentPage, displayedData);
     });
